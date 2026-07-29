@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import logoFull from "@/assets/logo-full.png.asset.json";
 import { AnnouncementBar, Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { MobileContactButton } from "@/components/site/MobileContactButton";
@@ -100,10 +99,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://images.unsplash.com" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "preload", as: "image", href: "/brand/stag-family-care-logo.webp" },
+      { rel: "icon", type: "image/png", href: "/brand/favicon.png" },
+      { rel: "apple-touch-icon", href: "/brand/favicon.png" },
     ],
     scripts: [
       {
@@ -116,10 +116,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           description:
             "Family run care service offering personal care, live in care, companionship and supported living at home.",
           url: "/",
-          logo: logoFull.url,
+          logo: "/brand/stag-family-care-logo.png",
         }),
       },
     ],
+
   }),
 
   shellComponent: RootShell,

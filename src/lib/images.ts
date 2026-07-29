@@ -13,7 +13,7 @@ export interface Photo {
 
 export function photoSrc(photo: Photo, width: number) {
   if (photo.provider === "pexels") {
-    return `https://images.pexels.com/photos/${photo.id}/pexels-photo-${photo.id}.jpeg?auto=compress&cs=tinysrgb&w=${width}`;
+    return `https://images.pexels.com/photos/${photo.id}/pexels-photo-${photo.id}.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=${width}`;
   }
   return `https://images.unsplash.com/photo-${photo.id}?auto=format&fit=crop&q=70&w=${width}`;
 }

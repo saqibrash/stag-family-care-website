@@ -15,15 +15,17 @@ export function Photo({
   priority?: boolean;
   sizes?: string;
 }) {
-  const widths = [480, 720, 1000, 1400];
+  const widths = [400, 640, 900, 1280];
 
   return (
     <div className={cn("overflow-hidden bg-secondary", className)}>
       <img
-        src={photoSrc(photo, 1000)}
+        src={photoSrc(photo, 900)}
         srcSet={widths.map((w) => `${photoSrc(photo, w)} ${w}w`).join(", ")}
         sizes={sizes}
         alt={photo.alt}
+        width={1200}
+        height={800}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={priority ? "high" : "auto"}
@@ -32,3 +34,4 @@ export function Photo({
     </div>
   );
 }
+
