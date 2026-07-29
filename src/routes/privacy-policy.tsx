@@ -39,7 +39,7 @@ function Privacy() {
           <div>
             <h2 className="text-2xl text-foreground">Who we are</h2>
             <p className="mt-3">
-              {site.name}, {site.address}. You can contact us on {site.phone} or at {site.email}.
+              {site.name}. {site.address || site.addressLabel}. {site.phone || site.phoneLabel}. {site.email || site.emailLabel}.
             </p>
           </div>
 

@@ -84,15 +84,25 @@ function Careers() {
           title="Register your interest"
           intro="Send a short email telling us a little about yourself and the kind of hours that suit you."
         />
-        <Button asChild size="lg" className="mt-8 rounded-full">
-          <a href={`mailto:${site.careersEmail}`}>
-            <Mail aria-hidden="true" />
-            {site.careersEmail}
-          </a>
-        </Button>
+{site.careersEmail ? (
+          <Button asChild size="lg" className="mt-8 rounded-full">
+            <a href={`mailto:${site.careersEmail}`}>
+              <Mail aria-hidden="true" />
+              {site.careersEmail}
+            </a>
+          </Button>
+        ) : (
+          <p className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-secondary px-5 py-4 font-semibold text-secondary-foreground">
+            <Mail aria-hidden="true" className="h-5 w-5" />
+            {site.careersEmailLabel}
+          </p>
+        )}
         <p className="mt-4 text-sm text-muted-foreground">
-          [Editable placeholder — replace with the final careers email address or an application form
-          link.]
+          Until the careers address is live, please use the{" "}
+          <a href="/contact" className="font-semibold text-primary underline underline-offset-4">
+            contact form
+          </a>{" "}
+          to register your interest.
         </p>
       </Section>
     </>

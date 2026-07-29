@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CtaSection, PageHero, Section, SectionHeading } from "@/components/site/Section";
-import { site } from "@/lib/site";
+import { hasAreas, site } from "@/lib/site";
+import { Photo } from "@/components/site/Photo";
+import { photos } from "@/lib/images";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -34,12 +36,13 @@ function About() {
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-2">
+          <Photo photo={photos.hands} className="order-last aspect-[4/3] rounded-3xl shadow-lift lg:order-none lg:hidden" />
           <div className="space-y-4 text-lg text-muted-foreground">
             <h2 className="text-3xl text-foreground">Why we started</h2>
             <p>
-              Like a lot of families, we've had our own experience of arranging care — the phone
+              Like a lot of families, we have had our own experience of arranging care: the phone
               calls, the changing faces, the feeling of not quite being heard. STAG Family Care grew
-              out of that: a small service where the people arranging the care are the people you
+              out of that. A small service where the people arranging the care are the people you
               can speak to.
             </p>
             <p>
@@ -52,9 +55,9 @@ function About() {
               >
                 {site.sisterCompany.name}
               </a>
-              , a separate local business. Different service, different team — same family standards.
+              , a separate local business. Different service, different team, same family standards.
             </p>
-            <p>[Editable placeholder — add the founding story, launch background and local roots.]</p>
+            <p>[Editable placeholder. Add the founding story, launch background and local roots.]</p>
           </div>
 
           <dl className="grid gap-4 self-start rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
@@ -62,7 +65,7 @@ function About() {
               <dt className="text-sm font-bold uppercase tracking-[0.16em] text-primary">
                 Service area
               </dt>
-              <dd className="mt-1">{site.serviceAreas.join(", ")}</dd>
+              <dd className="mt-1">{hasAreas ? site.serviceAreas.join(", ") : site.serviceAreasLabel}</dd>
             </div>
             <div>
               <dt className="text-sm font-bold uppercase tracking-[0.16em] text-primary">
@@ -79,7 +82,7 @@ function About() {
                 Care experience &amp; qualifications
               </dt>
               <dd className="mt-1 text-muted-foreground">
-                [Editable placeholder — list relevant care experience, training and qualifications
+                [Editable placeholder. List relevant care experience, training and qualifications
                 once confirmed.]
               </dd>
             </div>
@@ -112,7 +115,7 @@ function About() {
             ["Dignity", "Care given quietly, respectfully and at the pace of the person receiving it."],
             ["Independence", "Support that keeps people doing what they can for themselves."],
             ["Consistency", "Familiar carers, planned visits and honest communication."],
-            ["Family values", "We only offer what we'd be happy for our own family to receive."],
+            ["Family values", "We only offer what we would be happy for our own family to receive."],
           ].map(([t, b]) => (
             <div key={t} className="rounded-3xl bg-blush p-6">
               <h3 className="text-lg">{t}</h3>
@@ -122,7 +125,7 @@ function About() {
         </div>
       </Section>
 
-      <CtaSection title="Have a question about who we are?" body="We're happy to talk things through before you decide anything." />
+      <CtaSection title="Have a question about who we are?" body="We are happy to talk things through before you decide anything." />
     </>
   );
 }
