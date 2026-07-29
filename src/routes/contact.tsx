@@ -16,22 +16,26 @@ import {
 } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { PageHero, Section } from "@/components/site/Section";
-import { services, site } from "@/lib/site";
+import { Photo } from "@/components/site/Photo";
+import { photos } from "@/lib/images";
+import { hasAddress, hasEmail, hasPhone, services, site } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us | STAG Family Care" },
+      { title: "Contact STAG Family Care | Enquire About Care at Home" },
       {
         name: "description",
         content:
-          "Contact STAG Family Care to talk about personal care, live-in care, companionship or supported living. Call us or send an enquiry — no obligation.",
+          "Contact STAG Family Care about personal care, live in care, companionship or supported living. Send an enquiry and we will talk it through with no obligation.",
       },
       { property: "og:title", content: "Contact STAG Family Care" },
       {
         property: "og:description",
-        content: "Enquire about care at home — call or send us a message and we'll talk it through.",
+        content:
+          "Send an enquiry about care at home and we will talk it through with you. No cost and no obligation.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -40,11 +44,11 @@ export const Route = createFileRoute("/contact")({
 });
 
 const schema = z.object({
-  name: z.string().trim().min(2, "Please enter your name").max(80),
+  name: z.string().trim().min(2, "Please enter your full name").max(80),
   phone: z.string().trim().min(7, "Please enter a contact number").max(20),
   email: z.string().trim().email("Please enter a valid email address").max(160),
-  postcode: z.string().trim().min(3, "Please enter your postcode").max(10),
-  support: z.string().min(1, "Please choose the type of support"),
+  support: z.string().min(1, "Please choose the type of care required"),
+  careFor: z.string().min(1, "Please tell us who the care is for"),
   preferred: z.enum(["phone", "email"]),
   message: z.string().trim().min(10, "Please tell us a little more").max(1200),
   consent: z.literal(true, { errorMap: () => ({ message: "Please tick the consent box" }) }),
@@ -56,18 +60,20 @@ function Contact() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [support, setSupport] = useState("");
+  const [careFor, setCareFor] = useState("");
   const [preferred, setPreferred] = useState("phone");
   const [consent, setConsent] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     const result = schema.safeParse({
       name: form.get("name"),
       phone: form.get("phone"),
       email: form.get("email"),
-      postcode: form.get("postcode"),
       support,
+      careFor,
       preferred,
       message: form.get("message"),
       consent,
@@ -83,8 +89,9 @@ function Contact() {
 
     setErrors({});
     setStatus("success");
-    e.currentTarget.reset();
+    formEl.reset();
     setSupport("");
+    setCareFor("");
     setConsent(false);
   };
 
@@ -92,17 +99,17 @@ function Contact() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Let's talk about the right support"
-        intro="Tell us what's happening and we'll talk it through — there's no cost and no obligation."
+        title="Let us talk about the right support"
+        intro="Tell us what is happening and we will talk it through with you. There is no cost and no obligation."
       />
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-          <div className="rounded-3xl border border-border/70 bg-card p-6 shadow-soft sm:p-8">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr]">
+          <div className="depth-card p-6 sm:p-8">
             <h2 className="text-2xl">Enquire about care</h2>
             <p className="mt-2 text-muted-foreground">
-              Fields marked with * are required. This form is a demonstration — submissions are not
-              yet sent anywhere.
+              Fields marked with * are required. Please do not send medical details through this
+              form. We will talk those through with you properly at assessment.
             </p>
 
             {status === "success" ? (
@@ -111,7 +118,7 @@ function Contact() {
                 className="mt-6 flex items-start gap-3 rounded-2xl bg-secondary p-4 text-secondary-foreground"
               >
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
-                Thank you — your enquiry has been received. We'll be in touch using your preferred
+                Thank you. Your enquiry has been received and we will reply using your preferred
                 contact method.
               </p>
             ) : null}
@@ -127,7 +134,7 @@ function Contact() {
             ) : null}
 
             <form onSubmit={onSubmit} noValidate className="mt-6 grid gap-5">
-              <Field id="name" label="Your name *" error={errors.name}>
+              <Field id="name" label="Full name *" error={errors.name}>
                 <Input id="name" name="name" autoComplete="name" maxLength={80} />
               </Field>
 
@@ -141,10 +148,7 @@ function Contact() {
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field id="postcode" label="Postcode *" error={errors.postcode}>
-                  <Input id="postcode" name="postcode" autoComplete="postal-code" maxLength={10} />
-                </Field>
-                <Field id="support" label="Type of support *" error={errors.support}>
+                <Field id="support" label="Type of care required *" error={errors.support}>
                   <Select value={support} onValueChange={setSupport}>
                     <SelectTrigger id="support" className="w-full">
                       <SelectValue placeholder="Please choose" />
@@ -156,6 +160,23 @@ function Contact() {
                         </SelectItem>
                       ))}
                       <SelectItem value="Not sure yet">Not sure yet</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
+                <Field id="careFor" label="Who is the care for? *" error={errors.careFor}>
+                  <Select value={careFor} onValueChange={setCareFor}>
+                    <SelectTrigger id="careFor" className="w-full">
+                      <SelectValue placeholder="Please choose" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Myself">Myself</SelectItem>
+                      <SelectItem value="A parent">A parent</SelectItem>
+                      <SelectItem value="A partner or spouse">A partner or spouse</SelectItem>
+                      <SelectItem value="Another family member">Another family member</SelectItem>
+                      <SelectItem value="A friend or neighbour">A friend or neighbour</SelectItem>
+                      <SelectItem value="A client or professional referral">
+                        A professional referral
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </Field>
@@ -179,8 +200,14 @@ function Contact() {
                 </RadioGroup>
               </fieldset>
 
-              <Field id="message" label="How can we help? *" error={errors.message}>
-                <Textarea id="message" name="message" rows={5} maxLength={1200} />
+              <Field id="message" label="Message *" error={errors.message}>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  maxLength={1200}
+                  placeholder="A short note about the support you are looking for is plenty to get started."
+                />
               </Field>
 
               <div>
@@ -192,7 +219,7 @@ function Contact() {
                     className="mt-1"
                   />
                   <Label htmlFor="consent" className="text-sm font-normal leading-relaxed">
-                    I'm happy for STAG Family Care to use these details to respond to my enquiry. *
+                    I am happy for STAG Family Care to use these details to respond to my enquiry. *
                   </Label>
                 </div>
                 {errors.consent ? (
@@ -200,7 +227,10 @@ function Contact() {
                 ) : null}
                 <p className="mt-3 text-sm text-muted-foreground">
                   Your details are only used to respond to this enquiry. See our{" "}
-                  <a href="/privacy-policy" className="font-semibold text-primary underline underline-offset-4">
+                  <a
+                    href="/privacy-policy"
+                    className="font-semibold text-primary underline underline-offset-4"
+                  >
                     privacy policy
                   </a>
                   .
@@ -214,42 +244,56 @@ function Contact() {
           </div>
 
           <aside className="space-y-6">
+            <Photo photo={photos.livingRoom} className="rounded-3xl shadow-lift" />
+
             <div className="rounded-3xl bg-blush p-7">
               <h2 className="text-2xl">Speak to us</h2>
               <ul className="mt-5 space-y-4">
                 <li className="flex items-start gap-3">
                   <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <a href={site.phoneHref} className="font-semibold underline-offset-4 hover:underline">
-                    {site.phone}
-                  </a>
+                  {hasPhone ? (
+                    <a
+                      href={`tel:${site.phone.replace(/\s/g, "")}`}
+                      className="font-semibold underline-offset-4 hover:underline"
+                    >
+                      {site.phone}
+                    </a>
+                  ) : (
+                    <span className="text-muted-foreground">{site.phoneLabel}</span>
+                  )}
                 </li>
                 <li className="flex items-start gap-3">
                   <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <a href={`mailto:${site.email}`} className="break-all underline-offset-4 hover:underline">
-                    {site.email}
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span>{site.address}</span>
+                  {hasEmail ? (
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="break-all underline-offset-4 hover:underline"
+                    >
+                      {site.email}
+                    </a>
+                  ) : (
+                    <span className="text-muted-foreground">{site.emailLabel}</span>
+                  )}
                 </li>
                 <li className="flex items-start gap-3">
                   <Clock className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span>{site.openingHours}</span>
+                  <span className="text-muted-foreground">
+                    {site.openingHours || site.openingHoursLabel}
+                  </span>
                 </li>
               </ul>
+              <p className="mt-5 text-sm text-muted-foreground">{site.outOfHours}</p>
             </div>
 
-            <div className="rounded-3xl border border-dashed border-primary/40 p-7">
-              <h2 className="text-xl">Outside office hours</h2>
-              <p className="mt-3 text-muted-foreground">{site.outOfHours}</p>
-            </div>
-
+            {/* Editable office location section */}
             <div className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
-              <h2 className="text-xl">Areas we plan to cover</h2>
-              <p className="mt-3 text-muted-foreground">{site.serviceAreas.join(", ")}</p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                [Editable placeholder — confirm covered areas and postcodes.]
+              <h2 className="text-xl">Office location</h2>
+              <p className="mt-3 flex items-start gap-3 text-muted-foreground">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                {hasAddress ? site.address : site.addressLabel}
+              </p>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Care service area to be confirmed. {site.serviceAreaNote}
               </p>
             </div>
           </aside>
@@ -276,7 +320,11 @@ function Field({
         {label}
       </Label>
       <div className="mt-2">{children}</div>
-      {error ? <p className="mt-2 text-sm text-destructive">{error}</p> : null}
+      {error ? (
+        <p className="mt-2 text-sm text-destructive" role="alert">
+          {error}
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -10,12 +10,12 @@ export const Route = createFileRoute("/why-choose-us")({
       {
         name: "description",
         content:
-          "Why families consider STAG Family Care — familiar carers, honest communication, careful matching and care plans agreed with you.",
+          "Why families consider STAG Family Care, familiar carers, honest communication, careful matching and care plans agreed with you.",
       },
       { property: "og:title", content: "Why Choose STAG Family Care" },
       {
         property: "og:description",
-        content: "A small, family-led care service built on consistency and honest communication.",
+        content: "A small, family run care service built on consistency and honest communication.",
       },
       { property: "og:url", content: "/why-choose-us" },
     ],
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/why-choose-us")({
 });
 
 const reasons = [
-  ["Family-led, not faceless", "You'll speak to the people responsible for the service, not a call queue."],
+  ["Family run, not faceless", "You'll speak to the people responsible for the service, not a call queue."],
   ["Consistent carers", "We aim to introduce a small, familiar team so visits feel comfortable, not clinical."],
   ["Thoughtful matching", "Interests and personality matter as much as availability when we plan who visits."],
   ["Plans agreed with you", "Care plans are written together and reviewed as needs change."],
