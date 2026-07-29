@@ -1,30 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Accessibility,
   ArrowRight,
-  Clock,
   HandHeart,
-  Heart,
   HeartHandshake,
   Home as HomeIcon,
   ShieldCheck,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { CtaSection, Section, SectionHeading } from "@/components/site/Section";
 import { StagHero3D } from "@/components/site/StagHero3D";
 import { ProcessPath } from "@/components/site/ProcessPath";
 import { TiltCard } from "@/components/site/TiltCard";
 import { Reveal } from "@/components/site/Reveal";
-import { Photo } from "@/components/site/Photo";
-import { photos } from "@/lib/images";
-import { faqs, hasAreas, services, site } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,13 +38,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const values = [
-  { icon: ShieldCheck, title: "Dignity", body: "Support given quietly and respectfully, always led by the person receiving it." },
-  { icon: Accessibility, title: "Independence", body: "We help people do things for themselves wherever we can, not instead of them." },
-  { icon: Clock, title: "Consistency", body: "Familiar faces, planned visits and clear communication with families." },
-  { icon: Heart, title: "Family values", body: "The care we would want for our own is the standard we hold ourselves to." },
-];
-
 const serviceIcons = {
   "personal-care": HandHeart,
   "live-in-care": HomeIcon,
@@ -66,19 +48,15 @@ const serviceIcons = {
 function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="hero-gradient relative overflow-hidden border-b border-border/60 px-4 py-14 sm:py-20">
+      <section className="hero-gradient relative overflow-hidden border-b border-border/60 px-4 py-12 sm:py-16">
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_0.95fr]">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-secondary-foreground">
-              {site.strapline}
-            </p>
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[3.4rem]">
-              Care at home that feels personal, because family comes first
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem]">
+              Care that feels personal, because family comes first.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              STAG Family Care offers respectful, dependable support at home. Personal care, live in
-              care, companionship and supported living, planned around each person.
+            <p className="mt-6 max-w-xl text-lg text-muted-foreground sm:text-xl">
+              Respectful care at home, planned around each person and the routines that matter to
+              them.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
@@ -87,64 +65,39 @@ function Home() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full">
-                <Link to="/services">Explore Our Services</Link>
+                <Link to="/services">Our Services</Link>
               </Button>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">{site.launchNote}</p>
           </div>
           <StagHero3D />
         </div>
       </section>
 
-      {/* Values */}
-      <Section>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 70}>
-              <div className="depth-card h-full p-6">
-                <v.icon className="h-7 w-7 text-primary" aria-hidden="true" />
-                <h2 className="mt-4 text-xl">{v.title}</h2>
-                <p className="mt-2 text-muted-foreground">{v.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Services */}
-      <Section tone="cream" id="services">
+      <Section id="services" className="py-14 sm:py-16">
         <Reveal>
           <SectionHeading
-            eyebrow="Our services"
-            title="Support shaped around everyday life"
-            intro="Four core services, each agreed after an assessment and reviewed as things change."
+            title="Main services"
+            intro="Four simple ways we can support people at home."
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => {
             const Icon = serviceIcons[s.key];
             return (
               <Reveal key={s.key} delay={i * 80}>
                 <TiltCard>
-                  <article className="depth-card flex h-full flex-col overflow-hidden">
-                    <Photo
-                      photo={photos[s.key === "personal-care" ? "personalCare" : s.key === "live-in-care" ? "liveInCare" : s.key === "companionship" ? "companionship" : "supportedLiving"]}
-                      className="h-48"
-                      sizes="(min-width: 768px) 520px, 100vw"
-                    />
-                    <div className="flex flex-1 flex-col p-7">
-                      <Icon className="h-8 w-8 text-primary" aria-hidden="true" />
-                      <h3 className="mt-4 text-2xl">{s.title}</h3>
-                      <p className="mt-3 flex-1 text-muted-foreground">{s.short}</p>
-                      <Link
-                        to="/services/$service"
-                        params={{ service: s.key }}
-                        className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline-offset-4 hover:underline"
-                      >
-                        Read more about {s.title.toLowerCase()}
-                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                      </Link>
-                    </div>
+                  <article className="depth-card flex h-full flex-col p-6">
+                    <Icon className="h-7 w-7 text-primary" aria-hidden="true" />
+                    <h2 className="mt-4 text-xl">{s.title}</h2>
+                    <p className="mt-3 flex-1 text-sm text-muted-foreground">{s.short}</p>
+                    <Link
+                      to="/services/$service"
+                      params={{ service: s.key }}
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                    >
+                      Read more
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
                   </article>
                 </TiltCard>
               </Reveal>
@@ -153,51 +106,52 @@ function Home() {
         </div>
       </Section>
 
-      {/* Why families choose STAG */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Why families choose STAG"
-              title="A small, family run service that answers the phone"
-              intro="Good care comes down to the same things every time: turning up, listening properly and treating people as people."
-            />
-            <Button asChild variant="outline" className="mt-8 rounded-full">
-              <Link to="/why-choose-us">Why choose us</Link>
-            </Button>
-          </Reveal>
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {[
-              ["Care plans written with you", "Nothing begins until the plan is agreed with the person receiving care and, if they wish, their family."],
-              ["Honest about what we can do", "If we are not the right fit, we will say so and point you elsewhere."],
-              ["Careful carer matching", "We think about personality and interests, not just availability."],
-              ["Clear communication", "One team to speak to, and updates families can actually follow."],
-            ].map(([t, b], i) => (
-              <Reveal as="li" key={t} delay={i * 70} className="rounded-3xl bg-blush p-6">
-                <h3 className="text-lg">{t}</h3>
-                <p className="mt-2 text-muted-foreground">{b}</p>
-              </Reveal>
-            ))}
-          </ul>
+      <Section tone="cream" className="py-14 sm:py-16">
+        <Reveal>
+          <SectionHeading title="Why choose us" intro="Care should feel calm, personal and easy to understand." />
+        </Reveal>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {[
+            ["Family values", "We treat people with the care we would want for our own family."],
+            ["Clear plans", "Support is agreed with you and reviewed when needs change."],
+            ["Familiar faces", "We aim for consistent carers and simple communication."],
+          ].map(([title, body], i) => (
+            <Reveal key={title} delay={i * 80} className="rounded-3xl bg-card p-6 shadow-soft">
+              <ShieldCheck className="h-6 w-6 text-primary" aria-hidden="true" />
+              <h2 className="mt-4 text-xl">{title}</h2>
+              <p className="mt-2 text-sm text-muted-foreground">{body}</p>
+            </Reveal>
+          ))}
         </div>
       </Section>
 
-      {/* Steps */}
-      <Section tone="cream">
+      <Section className="py-14 sm:py-16">
         <Reveal>
           <SectionHeading
-            eyebrow="Getting started"
-            title="How support begins, in four simple steps"
-            intro="No jargon and no pressure, just a clear path from first enquiry to ongoing support."
+            title="Simple care process"
+            intro="A clear route from first enquiry to ongoing support."
           />
         </Reveal>
         <ProcessPath />
       </Section>
 
-      {/* Family story */}
-      <Section>
+      <Section tone="blush" className="py-14 sm:py-16">
         <Reveal>
-          <div className="grid items-center gap-10 rounded-4xl bg-burgundy p-8 text-burgundy-foreground sm:p-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-clay">Our name</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">The family meaning behind STAG</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              STAG is made up of family names. STAG Family Care is a separate business to STAG
+              Cleaning Services, but it shares the same family commitment to doing things properly.
+            </p>
+          </div>
+        </Reveal>
+      </Section>
+
+      <CtaSection title="Ready to ask about care?" body="Send a simple enquiry and we will talk through what support may help." />
+    </>
+  );
+}
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-clay">Our name</p>
               <h2 className="mt-3 text-3xl sm:text-4xl">The story behind STAG</h2>

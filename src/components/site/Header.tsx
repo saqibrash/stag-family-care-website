@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, PhoneOff } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -14,14 +14,6 @@ const nav = [
   { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ] as const;
-
-export function AnnouncementBar() {
-  return (
-    <div className="deep-gradient text-burgundy-foreground">
-      <p className="mx-auto max-w-6xl px-4 py-2 text-center text-sm">{site.announcement}</p>
-    </div>
-  );
-}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -91,12 +83,7 @@ export function Header() {
                   <Button asChild variant="outline" className="w-full rounded-full">
                     <a href={`tel:${site.phone.replace(/\s/g, "")}`}>Call {site.phone}</a>
                   </Button>
-                ) : (
-                  <p className="flex items-start gap-2 rounded-xl bg-secondary p-3 text-sm text-secondary-foreground">
-                    <PhoneOff className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                    {site.phoneLabel}
-                  </p>
-                )}
+                ) : null}
               </div>
             </SheetContent>
           </Sheet>

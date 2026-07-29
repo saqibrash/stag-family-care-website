@@ -1,16 +1,17 @@
 import { cn } from "@/lib/utils";
-import logoFull from "@/assets/logo-full.png.asset.json";
-import logoMark from "@/assets/logo-mark.png.asset.json";
+
+const logoFull = "/stag-family-care-logo.png";
+const logoMark = "/stag-family-care-mark.png";
 
 /** Official STAG Family Care logo. Never recoloured or redrawn. */
 export function Logo({ className }: { className?: string }) {
   return (
     <img
-      src={logoFull.url}
+      src={logoFull}
       alt="STAG Family Care, from our family to yours"
-      width={1292}
-      height={667}
-      className={cn("h-12 w-auto sm:h-14", className)}
+      width={1335}
+      height={710}
+      className={cn("h-12 w-auto max-w-full object-contain sm:h-14", className)}
     />
   );
 }
@@ -25,11 +26,11 @@ export function LogoMark({
 }) {
   return (
     <img
-      src={logoMark.url}
+      src={logoMark}
       alt={decorative ? "" : "STAG Family Care emblem"}
       aria-hidden={decorative || undefined}
-      width={465}
-      height={667}
+      width={712}
+      height={712}
       loading="lazy"
       decoding="async"
       className={cn("h-10 w-auto", className)}
