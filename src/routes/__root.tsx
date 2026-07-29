@@ -82,11 +82,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "STAG Family Care | Care at Home, From Our Family to Yours" },
+      { title: "STAG Family Care | Family Run Care at Home in the UK" },
       {
         name: "description",
         content:
-          "STAG Family Care provides respectful personal care, live-in care, companionship and supported living at home, designed around each person.",
+          "STAG Family Care provides respectful personal care, live in care, companionship and supported living at home, planned around each person.",
       },
       { property: "og:site_name", content: "STAG Family Care" },
       { property: "og:type", content: "website" },
@@ -96,30 +96,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: "https://images.pexels.com" },
+      { rel: "preconnect", href: "https://images.unsplash.com" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: favicon.url },
+      { rel: "apple-touch-icon", href: favicon.url },
     ],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
+          "@type": "Organization",
           name: "STAG Family Care",
           slogan: "From our family to yours",
           description:
-            "Family-led care service offering personal care, 24/7 live-in care, companionship and supported living.",
-          telephone: site.phone,
-          email: site.email,
-          address: { "@type": "PostalAddress", streetAddress: site.address, addressCountry: "GB" },
-          areaServed: site.serviceAreas,
+            "Family run care service offering personal care, live in care, companionship and supported living at home.",
+          url: "/",
+          logo: logoFull.url,
         }),
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
