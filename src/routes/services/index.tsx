@@ -12,7 +12,7 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "Personal care, 24/7 live-in care, companionship and supported living from STAG Family Care — support at home agreed after assessment.",
+          "Personal care, live in care, companionship and supported living from STAG Family Care, support at home agreed after assessment.",
       },
       { property: "og:title", content: "Care Services | STAG Family Care" },
       {

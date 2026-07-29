@@ -75,7 +75,7 @@ function ServicePage() {
         <SectionHeading
           eyebrow="How it works"
           title={`Arranging ${service.title.toLowerCase()}`}
-          intro="A simple, unhurried process — you can stop at any point."
+          intro="A simple, unhurried process, you can stop at any point."
         />
         <ProcessPath />
         <div className="mt-12 flex flex-wrap gap-3">

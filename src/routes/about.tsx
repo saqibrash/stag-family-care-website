@@ -11,12 +11,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "STAG Family Care is a family-led care service. Meet the people behind the name and read about our values, purpose and approach to care at home.",
+          "STAG Family Care is a family run care service. Meet the people behind the name and read about our values, purpose and approach to care at home.",
       },
       { property: "og:title", content: "About STAG Family Care" },
       {
         property: "og:description",
-        content: "A family-led care service built on dignity, independence and consistency.",
+        content: "A family run care service built on dignity, independence and consistency.",
       },
       { property: "og:url", content: "/about" },
     ],

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/careers")({
       { property: "og:title", content: "Careers at STAG Family Care" },
       {
         property: "og:description",
-        content: "Carer and support worker opportunities with a family-led care service.",
+        content: "Carer and support worker opportunities with a family run care service.",
       },
       { property: "og:url", content: "/careers" },
     ],
@@ -38,7 +38,7 @@ function Careers() {
         <div className="rounded-3xl border border-dashed border-primary/40 bg-blush p-7">
           <h2 className="text-xl">Current vacancies</h2>
           <p className="mt-3 text-muted-foreground">
-            [Editable placeholder — no vacancies are advertised at present. Add live roles here when
+            [Editable placeholder, no vacancies are advertised at present. Add live roles here when
             recruitment opens. Until then, expressions of interest are welcome.]
           </p>
         </div>
@@ -47,9 +47,9 @@ function Careers() {
           <article className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
             <h2 className="text-xl">Roles we expect to recruit</h2>
             <ul className="mt-4 space-y-2 text-muted-foreground">
-              <li>[Care Assistant — visiting care]</li>
-              <li>[Live-in Carer]</li>
-              <li>[Support Worker — supported living]</li>
+              <li>[Care Assistant, visiting care]</li>
+              <li>[Live in Carer]</li>
+              <li>[Support Worker, supported living]</li>
               <li>[Companionship Carer]</li>
             </ul>
           </article>
@@ -59,7 +59,7 @@ function Careers() {
             <ul className="mt-4 space-y-2 text-muted-foreground">
               <li>Kindness, patience and reliability</li>
               <li>[Right to work in the UK]</li>
-              <li>[Enhanced DBS check — details to confirm]</li>
+              <li>[Enhanced DBS check, details to confirm]</li>
               <li>[Driving licence and access to a vehicle, where required]</li>
               <li>[Experience or willingness to complete training]</li>
             </ul>

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircleHeart } from "lucide-react";
 
-/** Small, unobtrusive floating enquiry button — mobile only. */
+/** Small, unobtrusive floating enquiry button, mobile only. */
 export function MobileContactButton() {
   return (
     <Link
