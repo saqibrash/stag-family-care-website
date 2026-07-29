@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <span className="inline-flex rounded-2xl bg-cream p-3 shadow-lift">
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-16 w-auto" />
           </span>
           <p className="mt-4 text-sm text-charcoal-foreground/80">
             {site.strapline}. Respectful, dependable care and support at home, planned around each

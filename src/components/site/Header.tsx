@@ -22,7 +22,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-md">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
         <Link to="/" className="min-w-0" aria-label="STAG Family Care home">
-          <Logo className="h-11 w-auto sm:h-14" />
+          <Logo className="h-14 w-auto sm:h-16" />
         </Link>
 
         <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[88vw] max-w-sm bg-background">
               <SheetTitle className="sr-only">Menu</SheetTitle>
-              <Logo className="h-12 w-auto" />
+              <Logo className="h-16 w-auto" />
               <nav aria-label="Mobile" className="mt-6 flex flex-col gap-1">
                 {nav.map((item) => (
                   <Link
