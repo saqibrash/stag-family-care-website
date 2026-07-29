@@ -1,71 +1,67 @@
-import heroCareAtHome from "@/assets/photos/hero-care-at-home.webp.asset.json";
-import personalCareHome from "@/assets/photos/personal-care-home.webp.asset.json";
-import companionshipCare from "@/assets/photos/companionship-care.webp.asset.json";
-import supportedLiving from "@/assets/photos/supported-living.webp.asset.json";
-import familyCareConversation from "@/assets/photos/family-care-conversation.webp.asset.json";
+/**
+ * Real, royalty free photography (Pexels and Unsplash).
+ * Each entry keeps its own alt text so pages stay accessible.
+ */
 
-/** Real professional care photography hosted with the project for stable live delivery. */
+type Provider = "pexels" | "unsplash";
 
 export interface Photo {
-  src: string;
-  width: number;
-  height: number;
+  provider: Provider;
+  id: string;
   alt: string;
+}
+
+export function photoSrc(photo: Photo, width: number) {
+  if (photo.provider === "pexels") {
+    return `https://images.pexels.com/photos/${photo.id}/pexels-photo-${photo.id}.jpeg?auto=compress&cs=tinysrgb&w=${width}`;
+  }
+  return `https://images.unsplash.com/photo-${photo.id}?auto=format&fit=crop&q=70&w=${width}`;
 }
 
 export const photos = {
   hero: {
-    src: heroCareAtHome.url,
-    width: 1400,
-    height: 934,
+    provider: "pexels",
+    id: "7551664",
     alt: "A carer standing beside an older man in his living room, pointing towards the window as they chat",
   },
   personalCare: {
-    src: personalCareHome.url,
-    width: 1200,
-    height: 800,
+    provider: "pexels",
+    id: "7551611",
     alt: "A carer gently supporting an older man as he stretches and moves around his home",
   },
   liveInCare: {
-    src: familyCareConversation.url,
-    width: 1200,
-    height: 800,
-    alt: "A family talking with a care professional at home",
+    provider: "unsplash",
+    id: "1581579438747-1dc8d17bbce4",
+    alt: "An older woman preparing food in her own kitchen at home",
   },
   companionship: {
-    src: companionshipCare.url,
-    width: 1200,
-    height: 800,
+    provider: "pexels",
+    id: "3768131",
     alt: "An older woman laughing with a companion during a walk outdoors",
   },
   supportedLiving: {
-    src: supportedLiving.url,
-    width: 1200,
-    height: 800,
+    provider: "pexels",
+    id: "7551617",
     alt: "Two support workers sitting with a man at a table, looking at a tablet together",
   },
   family: {
-    src: familyCareConversation.url,
-    width: 1200,
-    height: 800,
-    alt: "A family talking with a care professional at home",
+    provider: "pexels",
+    id: "5637743",
+    alt: "Grandparents, a parent and children standing together in a garden",
   },
   conversation: {
-    src: familyCareConversation.url,
-    width: 1200,
-    height: 800,
+    provider: "pexels",
+    id: "7176026",
     alt: "A family talking with a care professional who is taking notes",
   },
   livingRoom: {
-    src: heroCareAtHome.url,
-    width: 1400,
-    height: 934,
-    alt: "A carer talking with an older person at home",
+    provider: "pexels",
+    id: "4098152",
+    alt: "Two visitors sitting and talking with an older person in a bright living room",
   },
   hands: {
-    src: personalCareHome.url,
-    width: 1200,
-    height: 800,
-    alt: "A carer supporting an older person at home",
+    provider: "unsplash",
+    id: "1584515933487-779824d29309",
+    alt: "A younger person holding the hand of an older person",
   },
 } satisfies Record<string, Photo>;

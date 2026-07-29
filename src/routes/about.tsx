@@ -18,9 +18,7 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "A family run care service built on dignity, independence and consistency.",
       },
-      { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
@@ -38,10 +36,7 @@ function About() {
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-2">
-          <Photo
-            photo={photos.hands}
-            className="order-last aspect-[4/3] rounded-3xl shadow-lift lg:order-none lg:hidden"
-          />
+          <Photo photo={photos.hands} className="order-last aspect-[4/3] rounded-3xl shadow-lift lg:order-none lg:hidden" />
           <div className="space-y-4 text-lg text-muted-foreground">
             <h2 className="text-3xl text-foreground">Why we started</h2>
             <p>
@@ -62,6 +57,7 @@ function About() {
               </a>
               , a separate local business. Different service, different team, same family standards.
             </p>
+            <p>[Editable placeholder. Add the founding story, launch background and local roots.]</p>
           </div>
 
           <dl className="grid gap-4 self-start rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
@@ -81,28 +77,36 @@ function About() {
               <dt className="text-sm font-bold uppercase tracking-[0.16em] text-primary">Launch</dt>
               <dd className="mt-1 text-muted-foreground">{site.launchNote}</dd>
             </div>
+            <div>
+              <dt className="text-sm font-bold uppercase tracking-[0.16em] text-primary">
+                Care experience &amp; qualifications
+              </dt>
+              <dd className="mt-1 text-muted-foreground">
+                [Editable placeholder. List relevant care experience, training and qualifications
+                once confirmed.]
+              </dd>
+            </div>
           </dl>
         </div>
       </Section>
 
-      {site.founders.length ? (
-        <Section tone="cream">
-          <SectionHeading eyebrow="Our people" title="The family behind STAG" />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {site.founders.map((f) => (
-              <article
-                key={f.role}
-                className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft"
-              >
-                <div className="h-14 w-14 rounded-2xl bg-blush" aria-hidden="true" />
-                <h3 className="mt-4 text-xl">{f.name}</h3>
-                <p className="text-sm font-semibold text-primary">{f.role}</p>
-                <p className="mt-3 text-muted-foreground">{f.bio}</p>
-              </article>
-            ))}
-          </div>
-        </Section>
-      ) : null}
+      <Section tone="cream">
+        <SectionHeading
+          eyebrow="Our people"
+          title="The family behind STAG"
+          intro="Names, roles and biographies are placeholders until confirmed."
+        />
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {site.founders.map((f) => (
+            <article key={f.role} className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
+              <div className="h-14 w-14 rounded-2xl bg-blush" aria-hidden="true" />
+              <h3 className="mt-4 text-xl">{f.name}</h3>
+              <p className="text-sm font-semibold text-primary">{f.role}</p>
+              <p className="mt-3 text-muted-foreground">{f.bio}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
 
       <Section>
         <SectionHeading eyebrow="Our values" title="What we hold ourselves to" />
@@ -121,10 +125,7 @@ function About() {
         </div>
       </Section>
 
-      <CtaSection
-        title="Have a question about who we are?"
-        body="We are happy to talk things through before you decide anything."
-      />
+      <CtaSection title="Have a question about who we are?" body="We are happy to talk things through before you decide anything." />
     </>
   );
 }

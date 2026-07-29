@@ -47,11 +47,11 @@
   --color-burgundy-foreground: var(--burgundy-foreground);
   --color-charcoal: var(--charcoal);
   --color-charcoal-foreground: var(--charcoal-foreground);
-  --font-display: Georgia, "Times New Roman", serif;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --shadow-soft: 0 14px 34px -26px oklch(0.3006 0.1169 30.5 / 0.38);
-  --shadow-lift: 0 24px 54px -34px oklch(0.3006 0.1169 30.5 / 0.46);
-  --shadow-deep: 0 34px 70px -40px oklch(0.2017 0.0526 28.4 / 0.5);
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 18px 40px -26px oklch(0.3006 0.1169 30.5 / 0.45);
+  --shadow-lift: 0 34px 70px -34px oklch(0.3006 0.1169 30.5 / 0.55);
+  --shadow-deep: 0 50px 90px -40px oklch(0.2017 0.0526 28.4 / 0.6);
 }
 
 :root {
@@ -119,7 +119,7 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
     line-height: 1.15;
     text-wrap: balance;
   }
