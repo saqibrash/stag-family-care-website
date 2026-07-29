@@ -9,10 +9,10 @@ export const Route = createFileRoute("/privacy-policy")({
       {
         name: "description",
         content:
-          "How STAG Family Care handles enquiry information. This privacy policy is a placeholder to be reviewed and completed before launch.",
+          "How STAG Family Care handles enquiry information, contact details and privacy rights.",
       },
       { property: "og:title", content: "Privacy Policy | STAG Family Care" },
-      { property: "og:description", content: "Placeholder privacy policy for STAG Family Care." },
+      { property: "og:description", content: "Privacy information for STAG Family Care enquiries." },
       { property: "og:url", content: "/privacy-policy" },
       { name: "robots", content: "noindex" },
     ],
@@ -27,57 +27,53 @@ function Privacy() {
       <PageHero
         eyebrow="Legal"
         title="Privacy policy"
-        intro="Placeholder document, this must be reviewed and completed before the website goes live."
+        intro="How enquiry information is handled by STAG Family Care."
       />
       <Section>
         <div className="max-w-3xl space-y-6 text-muted-foreground">
-          <p className="rounded-2xl border border-dashed border-primary/40 bg-blush p-5 text-foreground">
-            [Editable placeholder, replace this page with a full privacy policy prepared or reviewed
-            by a suitably qualified person, covering UK GDPR and the Data Protection Act 2018.]
-          </p>
-
           <div>
             <h2 className="text-2xl text-foreground">Who we are</h2>
             <p className="mt-3">
-              {site.name}. {site.address || site.addressLabel}. {site.phone || site.phoneLabel}. {site.email || site.emailLabel}.
+              {site.name} is a new care business. Separate STAG Family Care contact details will be
+              added once confirmed.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl text-foreground">Information we collect</h2>
             <p className="mt-3">
-              [Placeholder, describe the information collected through enquiry forms, telephone
-              calls and email, such as name, contact details, postcode and details of the support
-              being requested.]
+              We collect the information you choose to send through the enquiry form, such as your
+              name, contact details and a short message about the support being requested.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl text-foreground">How we use it</h2>
             <p className="mt-3">
-              [Placeholder, explain the lawful basis for processing, how enquiries are handled, and
-              that information is only used to respond to the enquiry and arrange care.]
+              We use enquiry information to respond to you, discuss potential care needs and keep a
+              record of the conversation where needed.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl text-foreground">Sharing and storage</h2>
             <p className="mt-3">
-              [Placeholder, set out any third parties, storage locations and retention periods.]
+              We do not sell personal information. Information may be shared only where needed to
+              respond to your enquiry, meet legal duties or arrange care with your agreement.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl text-foreground">Your rights</h2>
             <p className="mt-3">
-              [Placeholder, outline the rights to access, correction, erasure, objection and
-              complaint to the Information Commissioner's Office.]
+              You can ask to access, correct or delete your information. You can also raise a concern
+              with the Information Commissioner's Office.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl text-foreground">Cookies</h2>
-            <p className="mt-3">[Placeholder, confirm any cookies or analytics used on the site.]</p>
+            <p className="mt-3">This website does not use marketing cookies.</p>
           </div>
         </div>
       </Section>

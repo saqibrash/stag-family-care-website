@@ -13,7 +13,7 @@ import { StagHero3D } from "@/components/site/StagHero3D";
 import { ProcessPath } from "@/components/site/ProcessPath";
 import { TiltCard } from "@/components/site/TiltCard";
 import { Reveal } from "@/components/site/Reveal";
-import { services, site } from "@/lib/site";
+import { services } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -148,88 +148,10 @@ function Home() {
         </Reveal>
       </Section>
 
-      <CtaSection title="Ready to ask about care?" body="Send a simple enquiry and we will talk through what support may help." />
-    </>
-  );
-}
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-clay">Our name</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl">The story behind STAG</h2>
-              <p className="mt-4 text-burgundy-foreground/85">
-                STAG is made up of our family names. The same family already runs{" "}
-                {site.sisterCompany.name}, a local cleaning company built on turning up when we say
-                we will and doing the job properly.
-              </p>
-              <p className="mt-4 text-burgundy-foreground/85">
-                STAG Family Care is a separate business with its own team, training and standards.
-                What the two share is a name, a family and a reputation we intend to protect.
-              </p>
-              <a
-                href={site.sisterCompany.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="mt-6 inline-flex items-center gap-2 font-semibold text-cream underline underline-offset-4"
-              >
-                Visit {site.sisterCompany.name}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
-            <Photo
-              photo={photos.family}
-              className="aspect-[4/3] rounded-3xl shadow-deep"
-              sizes="(min-width: 1024px) 480px, 100vw"
-            />
-          </div>
-        </Reveal>
-      </Section>
-
-      {/* Local care */}
-      <Section tone="blush">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Local care"
-              title="Care close to home"
-              intro="We are building a local service, which means shorter journeys between visits and carers who know the area."
-            />
-          </Reveal>
-          <Reveal className="depth-card p-7">
-            <h3 className="text-lg">Areas we plan to cover</h3>
-            {hasAreas ? (
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {site.serviceAreas.map((area) => (
-                  <li
-                    key={area}
-                    className="rounded-full bg-secondary px-3 py-1.5 text-sm font-semibold text-secondary-foreground"
-                  >
-                    {area}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-4 font-semibold text-primary">{site.serviceAreasLabel}</p>
-            )}
-            <p className="mt-4 text-sm text-muted-foreground">{site.serviceAreaNote}</p>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* FAQ */}
-      <Section tone="cream">
-        <Reveal>
-          <SectionHeading eyebrow="FAQs" title="Questions families often ask" />
-        </Reveal>
-        <Accordion type="single" collapsible className="mt-8">
-          {faqs.map((f) => (
-            <AccordionItem key={f.q} value={f.q}>
-              <AccordionTrigger className="text-left font-display text-lg">{f.q}</AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground">{f.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </Section>
-
-      <CtaSection />
+      <CtaSection
+        title="Ready to ask about care?"
+        body="Send a simple enquiry and we will talk through what support may help."
+      />
     </>
   );
 }
