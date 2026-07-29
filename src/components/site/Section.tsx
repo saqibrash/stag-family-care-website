@@ -94,7 +94,11 @@ export function CtaSection({
           <div className="relative max-w-2xl">
             <h2 className="text-3xl sm:text-4xl">{title}</h2>
             <p className="mt-4 max-w-xl text-lg text-burgundy-foreground/85">{body}</p>
-            <Button asChild size="lg" className="mt-8 rounded-full bg-cream text-primary hover:bg-cream/90">
+            <Button
+              asChild
+              size="lg"
+              className="mt-8 rounded-full bg-cream text-primary hover:bg-cream/90"
+            >
               <Link to="/contact">
                 Enquire About Care <ArrowRight aria-hidden="true" />
               </Link>

@@ -243,62 +243,59 @@ function Contact() {
             </form>
           </div>
 
-            <aside className="space-y-6">
+          <aside className="space-y-6">
             <Photo photo={photos.livingRoom} className="rounded-3xl shadow-lift" />
 
-              <div className="rounded-3xl bg-blush p-7">
-                <h2 className="text-2xl">Speak to us</h2>
-                {hasPhone || hasEmail || site.openingHours ? (
-                  <ul className="mt-5 space-y-4">
-                    {hasPhone ? (
-                      <li className="flex items-start gap-3">
-                        <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <div className="rounded-3xl bg-blush p-7">
+              <h2 className="text-2xl">Speak to us</h2>
+              {hasPhone || hasEmail || site.openingHours ? (
+                <ul className="mt-5 space-y-4">
+                  {hasPhone ? (
+                    <li className="flex items-start gap-3">
+                      <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                     <a
                       href={`tel:${site.phone.replace(/\s/g, "")}`}
                       className="font-semibold underline-offset-4 hover:underline"
                     >
                       {site.phone}
                     </a>
-                      </li>
-                    ) : null}
-                    {hasEmail ? (
-                      <li className="flex items-start gap-3">
-                        <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                    </li>
+                  ) : null}
+                  {hasEmail ? (
+                    <li className="flex items-start gap-3">
+                      <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                     <a
                       href={`mailto:${site.email}`}
                       className="break-all underline-offset-4 hover:underline"
                     >
                       {site.email}
                     </a>
-                      </li>
-                    ) : null}
-                    {site.openingHours ? (
-                      <li className="flex items-start gap-3">
-                        <Clock className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                        <span className="text-muted-foreground">{site.openingHours}</span>
-                      </li>
-                    ) : null}
-                  </ul>
-                ) : (
-                  <p className="mt-4 text-muted-foreground">
-                    Please use the enquiry form while the separate STAG Family Care phone number and
-                    email are being finalised.
-                  </p>
-                )}
-                <p className="mt-5 text-sm text-muted-foreground">{site.outOfHours}</p>
-              </div>
-
-            {/* Editable office location section */}
-            <div className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
-              <h2 className="text-xl">Office location</h2>
-              <p className="mt-3 flex items-start gap-3 text-muted-foreground">
-                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                {hasAddress ? site.address : "Address details will be added once confirmed."}
-              </p>
-              <p className="mt-4 text-sm text-muted-foreground">
-                Care service area to be confirmed. {site.serviceAreaNote}
-              </p>
+                    </li>
+                  ) : null}
+                  {site.openingHours ? (
+                    <li className="flex items-start gap-3">
+                      <Clock className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                      <span className="text-muted-foreground">{site.openingHours}</span>
+                    </li>
+                  ) : null}
+                </ul>
+              ) : (
+                <p className="mt-4 text-muted-foreground">
+                  Please use the enquiry form for STAG Family Care enquiries.
+                </p>
+              )}
+              <p className="mt-5 text-sm text-muted-foreground">{site.outOfHours}</p>
             </div>
+
+            {hasAddress ? (
+              <div className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
+                <h2 className="text-xl">Office location</h2>
+                <p className="mt-3 flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  {site.address}
+                </p>
+              </div>
+            ) : null}
           </aside>
         </div>
       </Section>

@@ -34,8 +34,8 @@ function Privacy() {
           <div>
             <h2 className="text-2xl text-foreground">Who we are</h2>
             <p className="mt-3">
-              {site.name} is a new care business. Separate STAG Family Care contact details will be
-              added once confirmed.
+              {site.name} is a new care business. You can contact us through the enquiry form on
+              this website.
             </p>
           </div>
 

@@ -64,23 +64,23 @@ export function Footer() {
               {hasPhone ? (
                 <li className="flex items-start gap-2">
                   <Phone className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
-                <a
-                  href={`tel:${site.phone.replace(/\s/g, "")}`}
-                  className="underline-offset-4 hover:underline"
-                >
-                  {site.phone}
-                </a>
+                  <a
+                    href={`tel:${site.phone.replace(/\s/g, "")}`}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    {site.phone}
+                  </a>
                 </li>
               ) : null}
               {hasEmail ? (
                 <li className="flex items-start gap-2">
                   <Mail className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
-                <a
-                  href={`mailto:${site.email}`}
-                  className="break-all underline-offset-4 hover:underline"
-                >
-                  {site.email}
-                </a>
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="break-all underline-offset-4 hover:underline"
+                  >
+                    {site.email}
+                  </a>
                 </li>
               ) : null}
               {hasAddress ? (

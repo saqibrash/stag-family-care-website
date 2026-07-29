@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
@@ -81,7 +81,7 @@ function Careers() {
         <SectionHeading
           eyebrow="Applying"
           title="Register your interest"
-          intro="Send a short email telling us a little about yourself and the kind of hours that suit you."
+          intro="Use the enquiry form to tell us a little about yourself and the kind of hours that suit you."
         />
         {site.careersEmail ? (
           <Button asChild size="lg" className="mt-8 rounded-full">
@@ -92,10 +92,10 @@ function Careers() {
           </Button>
         ) : (
           <Button asChild size="lg" className="mt-8 rounded-full">
-            <a href="/contact">
+            <Link to="/contact">
               <Mail aria-hidden="true" />
               Use the enquiry form
-            </a>
+            </Link>
           </Button>
         )}
       </Section>
