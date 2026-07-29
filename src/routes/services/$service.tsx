@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 import { CtaSection, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { ProcessPath } from "@/components/site/ProcessPath";
 import { services } from "@/lib/site";
+import { Photo } from "@/components/site/Photo";
+import { photos } from "@/lib/images";
+
+const servicePhotos = {
+  "personal-care": photos.personalCare,
+  "live-in-care": photos.liveInCare,
+  companionship: photos.companionship,
+  "supported-living": photos.supportedLiving,
+} as const;
 
 export const Route = createFileRoute("/services/$service")({
   loader: ({ params }) => {
@@ -41,6 +50,12 @@ function ServicePage() {
       <PageHero eyebrow="Our services" title={service.title} intro={service.intro} />
 
       <Section>
+        <Photo
+          photo={servicePhotos[service.key]}
+          priority
+          className="mb-12 aspect-[16/7] rounded-4xl shadow-lift"
+          sizes="(min-width: 1024px) 1100px, 100vw"
+        />
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl">Who this may suit</h2>
