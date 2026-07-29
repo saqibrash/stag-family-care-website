@@ -97,8 +97,8 @@ function About() {
           intro="Names, roles and biographies are placeholders until confirmed."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {site.founders.map((f) => (
-            <article key={f.role} className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
+          {site.founders.map((f, i) => (
+            <article key={i} className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
               <div className="h-14 w-14 rounded-2xl bg-blush" aria-hidden="true" />
               <h3 className="mt-4 text-xl">{f.name}</h3>
               <p className="text-sm font-semibold text-primary">{f.role}</p>
