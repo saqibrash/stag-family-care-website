@@ -51,7 +51,7 @@ function ServicePage() {
 
       <Section>
         <Photo
-          photo={servicePhotos[service.key]}
+          photo={servicePhotos[service.key as keyof typeof servicePhotos]}
           priority
           className="mb-12 aspect-[16/7] rounded-4xl shadow-lift"
           sizes="(min-width: 1024px) 1100px, 100vw"
