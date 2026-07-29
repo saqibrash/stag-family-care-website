@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import logoFull from "@/assets/logo-full.png.asset.json";
 import { AnnouncementBar, Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { MobileContactButton } from "@/components/site/MobileContactButton";
