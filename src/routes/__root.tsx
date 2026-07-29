@@ -11,10 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import logoFull from "@/assets/logo-full.png.asset.json";
-import { AnnouncementBar, Header } from "@/components/site/Header";
+import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { MobileContactButton } from "@/components/site/MobileContactButton";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -94,31 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "preconnect", href: "https://images.pexels.com" },
-      { rel: "preconnect", href: "https://images.unsplash.com" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap",
-      },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "STAG Family Care",
-          slogan: "From our family to yours",
-          description:
-            "Family run care service offering personal care, live in care, companionship and supported living at home.",
-          url: "/",
-          logo: logoFull.url,
-        }),
-      },
     ],
   }),
 
@@ -153,14 +128,12 @@ function RootComponent() {
       >
         Skip to content
       </a>
-      <AnnouncementBar />
       <Header />
       <main id="main">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </main>
       <Footer />
-      <MobileContactButton />
       <Toaster richColors position="top-center" />
     </QueryClientProvider>
   );

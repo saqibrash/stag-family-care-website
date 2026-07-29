@@ -2,8 +2,8 @@
  * ================================================================
  * EDITABLE SITE DETAILS
  * This is the single place to update business information.
- * Leave a value as an empty string until it is confirmed. The site
- * will then show the "to be added" label instead of fake details.
+ * Leave a value as an empty string until it is confirmed. Empty values
+ * are hidden on the public website so fake details are never shown.
  * ================================================================
  */
 
@@ -13,23 +13,18 @@ export const site = {
 
   /** Add the STAG Family Care phone number here once it is live. */
   phone: "",
-  phoneLabel: "STAG Family Care phone number to be added",
 
   /** Add the STAG Family Care email address here once it is live. */
   email: "",
-  emailLabel: "STAG Family Care email address to be added",
 
   /** Add the careers email here once it is live. */
   careersEmail: "",
-  careersEmailLabel: "STAG Family Care careers email address to be added",
 
   /** Add the office address here once it is confirmed. */
   address: "",
-  addressLabel: "Office address to be confirmed",
 
   /** Add opening hours here once they are confirmed. */
   openingHours: "",
-  openingHoursLabel: "Office opening hours to be confirmed",
 
   outOfHours:
     "Out of hours arrangements will be confirmed and added here. In an emergency always call 999.",
@@ -39,27 +34,15 @@ export const site = {
 
   launchNote: "We are a new service and are happy to answer early enquiries.",
 
-  announcement:
-    "STAG Family Care is a new family run care service. Contact details will be published very soon.",
+  announcement: "STAG Family Care is a new family run care service.",
 
   /** Replace with the confirmed towns and areas STAG Family Care will cover. */
   serviceAreas: [] as string[],
-  serviceAreasLabel: "Care service area to be confirmed",
+  serviceAreasLabel: "Service area will be confirmed before care begins",
   serviceAreaNote:
     "STAG Cleaning Services, the family business already trading, covers the Cotswolds, Cirencester, Swindon and surrounding areas. The care service area will be confirmed separately before launch.",
 
-  founders: [
-    {
-      name: "Founder name to be added",
-      role: "Role to be confirmed",
-      bio: "A short introduction will be added here once the details are confirmed. We will only publish care experience and qualifications that can be evidenced.",
-    },
-    {
-      name: "Founder name to be added",
-      role: "Role to be confirmed",
-      bio: "A short introduction will be added here once the details are confirmed. Nothing is published until the family has checked it.",
-    },
-  ],
+  founders: [] as { name: string; role: string; bio: string }[],
 
   sisterCompany: {
     name: "STAG Cleaning Services",
@@ -209,19 +192,19 @@ export const services: ServiceContent[] = [
 export const steps = [
   {
     title: "Tell us what you need",
-    body: "Send an enquiry and tell us briefly what is happening. There is no pressure and no obligation.",
+    body: "Send a short enquiry. There is no pressure and no obligation.",
   },
   {
     title: "Initial conversation",
-    body: "We talk things through properly: routines, preferences, health needs and what would help most.",
+    body: "We talk through routines, preferences and what would help most.",
   },
   {
     title: "Personal care plan",
-    body: "After an assessment we write a clear plan together and agree who visits, when and what support may include.",
+    body: "We write a clear plan together after an assessment.",
   },
   {
     title: "Ongoing support",
-    body: "Care begins with a familiar team, and we review it regularly so the plan keeps pace with any change.",
+    body: "Care begins with a familiar team and regular reviews.",
   },
 ];
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { HeartHandshake, Home, ShieldCheck } from "lucide-react";
 import { LogoMark } from "./Logo";
 import { Photo } from "./Photo";
 import { photos } from "@/lib/images";
@@ -26,64 +25,39 @@ export function StagHero3D() {
   }, []);
 
   return (
-    <div className="relative mx-auto w-full max-w-lg" style={{ perspective: "1400px" }}>
+    <div className="relative mx-auto w-full max-w-md sm:max-w-lg" style={{ perspective: "1200px" }}>
       <div
         className="relative transition-transform duration-500 ease-out"
         style={{
-          transform: `rotateY(${tilt.x}deg) rotateX(${-tilt.y}deg)`,
+          transform: `rotateY(${tilt.x * 0.65}deg) rotateX(${-tilt.y * 0.65}deg)`,
           transformStyle: "preserve-3d",
         }}
       >
         <div
           aria-hidden="true"
-          className="absolute -inset-5 rounded-[2.75rem] bg-blush/80"
-          style={{ transform: "translateZ(-70px)" }}
+          className="absolute -inset-3 rounded-[2rem] bg-blush"
+          style={{ transform: "translateZ(-44px)" }}
         />
         <div
           aria-hidden="true"
-          className="absolute -inset-2 rounded-[2.5rem] brand-gradient opacity-90"
-          style={{ transform: "translateZ(-30px)" }}
+          className="absolute -inset-1 rounded-[1.75rem] brand-gradient opacity-90"
+          style={{ transform: "translateZ(-18px)" }}
         />
 
         <Photo
           photo={photos.hero}
           priority
-          className="relative aspect-[4/5] rounded-[2.25rem] shadow-deep sm:aspect-[5/6]"
+          className="relative aspect-[4/5] rounded-[1.5rem] shadow-lift sm:aspect-[5/6]"
+          imgClassName="object-[54%_50%]"
           sizes="(min-width: 1024px) 520px, 90vw"
         />
 
         <div
           aria-hidden="true"
-          className="float-slow absolute -left-5 top-10 grid h-20 w-20 place-items-center rounded-3xl surface-glass"
-          style={{ transform: "translateZ(90px)" }}
+          className="absolute -left-3 top-8 grid h-20 w-20 place-items-center rounded-2xl surface-glass sm:-left-5 sm:h-24 sm:w-24"
+          style={{ transform: "translateZ(70px)" }}
         >
-          <LogoMark decorative className="h-12 w-auto" />
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="float-slower absolute -right-4 top-1/3 grid h-16 w-16 place-items-center rounded-2xl surface-glass text-primary"
-          style={{ transform: "translateZ(120px)", animationDelay: "-2s" }}
-        >
-          <ShieldCheck className="h-7 w-7" />
-        </div>
-
-        <div
-          className="float-slow absolute -bottom-6 left-4 flex items-center gap-3 rounded-2xl bg-card px-4 py-3 shadow-lift"
-          style={{ transform: "translateZ(110px)", animationDelay: "-4s" }}
-        >
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
-            <HeartHandshake className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <span className="text-sm font-semibold">Care planned around each person</span>
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="float-slower absolute -right-6 bottom-16 grid h-14 w-14 place-items-center rounded-2xl surface-glass text-clay"
-          style={{ transform: "translateZ(70px)", animationDelay: "-6s" }}
-        >
-          <Home className="h-6 w-6" />
+          <LogoMark decorative className="h-14 w-auto sm:h-16" />
         </div>
       </div>
     </div>

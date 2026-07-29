@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { photoSrc, type Photo as PhotoData } from "@/lib/images";
+import type { Photo as PhotoData } from "@/lib/images";
 
 /** Responsive, lazy loaded photograph with a warm brand tinted frame. */
 export function Photo({
@@ -15,15 +15,14 @@ export function Photo({
   priority?: boolean;
   sizes?: string;
 }) {
-  const widths = [480, 720, 1000, 1400];
-
   return (
     <div className={cn("overflow-hidden bg-secondary", className)}>
       <img
-        src={photoSrc(photo, 1000)}
-        srcSet={widths.map((w) => `${photoSrc(photo, w)} ${w}w`).join(", ")}
+        src={photo.src}
         sizes={sizes}
         alt={photo.alt}
+        width={photo.width}
+        height={photo.height}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={priority ? "high" : "auto"}

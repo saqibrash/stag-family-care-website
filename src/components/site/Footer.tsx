@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <span className="inline-flex rounded-2xl bg-cream p-3 shadow-lift">
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-16 w-auto" />
           </span>
           <p className="mt-4 text-sm text-charcoal-foreground/80">
             {site.strapline}. Respectful, dependable care and support at home, planned around each
@@ -59,46 +59,48 @@ export function Footer() {
 
         <div>
           <h2 className="font-display text-base">Get in touch</h2>
-          <ul className="mt-4 space-y-3 text-sm">
-            <li className="flex items-start gap-2">
-              <Phone className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
+          {hasPhone || hasEmail || hasAddress || site.openingHours ? (
+            <ul className="mt-4 space-y-3 text-sm">
               {hasPhone ? (
-                <a
-                  href={`tel:${site.phone.replace(/\s/g, "")}`}
-                  className="underline-offset-4 hover:underline"
-                >
-                  {site.phone}
-                </a>
-              ) : (
-                <span className="text-charcoal-foreground/70">{site.phoneLabel}</span>
-              )}
-            </li>
-            <li className="flex items-start gap-2">
-              <Mail className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
+                <li className="flex items-start gap-2">
+                  <Phone className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
+                  <a
+                    href={`tel:${site.phone.replace(/\s/g, "")}`}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    {site.phone}
+                  </a>
+                </li>
+              ) : null}
               {hasEmail ? (
-                <a
-                  href={`mailto:${site.email}`}
-                  className="break-all underline-offset-4 hover:underline"
-                >
-                  {site.email}
-                </a>
-              ) : (
-                <span className="text-charcoal-foreground/70">{site.emailLabel}</span>
-              )}
-            </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
-              <span className="text-charcoal-foreground/70">
-                {hasAddress ? site.address : site.addressLabel}
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Clock className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
-              <span className="text-charcoal-foreground/70">
-                {site.openingHours || site.openingHoursLabel}
-              </span>
-            </li>
-          </ul>
+                <li className="flex items-start gap-2">
+                  <Mail className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="break-all underline-offset-4 hover:underline"
+                  >
+                    {site.email}
+                  </a>
+                </li>
+              ) : null}
+              {hasAddress ? (
+                <li className="flex items-start gap-2">
+                  <MapPin className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
+                  <span className="text-charcoal-foreground/70">{site.address}</span>
+                </li>
+              ) : null}
+              {site.openingHours ? (
+                <li className="flex items-start gap-2">
+                  <Clock className="mt-1 h-4 w-4 shrink-0 text-clay" aria-hidden="true" />
+                  <span className="text-charcoal-foreground/70">{site.openingHours}</span>
+                </li>
+              ) : null}
+            </ul>
+          ) : (
+            <p className="mt-4 text-sm text-charcoal-foreground/70">
+              Please use the enquiry form to contact STAG Family Care.
+            </p>
+          )}
           <p className="mt-4">
             <Link
               to="/contact"

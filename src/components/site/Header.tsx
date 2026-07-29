@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, PhoneOff } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -15,14 +15,6 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function AnnouncementBar() {
-  return (
-    <div className="deep-gradient text-burgundy-foreground">
-      <p className="mx-auto max-w-6xl px-4 py-2 text-center text-sm">{site.announcement}</p>
-    </div>
-  );
-}
-
 export function Header() {
   const [open, setOpen] = useState(false);
 
@@ -30,7 +22,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-md">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
         <Link to="/" className="min-w-0" aria-label="STAG Family Care home">
-          <Logo className="h-11 w-auto sm:h-14" />
+          <Logo className="h-14 w-auto sm:h-16" />
         </Link>
 
         <div className="flex items-center gap-2">
@@ -66,7 +58,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[88vw] max-w-sm bg-background">
               <SheetTitle className="sr-only">Menu</SheetTitle>
-              <Logo className="h-12 w-auto" />
+              <Logo className="h-16 w-auto" />
               <nav aria-label="Mobile" className="mt-6 flex flex-col gap-1">
                 {nav.map((item) => (
                   <Link
@@ -91,12 +83,7 @@ export function Header() {
                   <Button asChild variant="outline" className="w-full rounded-full">
                     <a href={`tel:${site.phone.replace(/\s/g, "")}`}>Call {site.phone}</a>
                   </Button>
-                ) : (
-                  <p className="flex items-start gap-2 rounded-xl bg-secondary p-3 text-sm text-secondary-foreground">
-                    <PhoneOff className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                    {site.phoneLabel}
-                  </p>
-                )}
+                ) : null}
               </div>
             </SheetContent>
           </Sheet>
