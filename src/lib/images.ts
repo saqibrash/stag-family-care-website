@@ -29,10 +29,10 @@ export const photos = {
     id: "7551611",
     alt: "A carer gently supporting an older man as he stretches and moves around his home",
   },
-  liveInCare: {
-    provider: "unsplash",
-    id: "1581579438747-1dc8d17bbce4",
-    alt: "An older woman preparing food in her own kitchen at home",
+  personCentredCare: {
+    provider: "pexels",
+    id: "7551628",
+    alt: "A care worker sitting at a kitchen table with an older man, going through paperwork together at home",
   },
   companionship: {
     provider: "pexels",
