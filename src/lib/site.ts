@@ -76,7 +76,11 @@ export const hasEmail = site.email.trim().length > 0;
 export const hasAddress = site.address.trim().length > 0;
 export const hasAreas = site.serviceAreas.length > 0;
 
-export type ServiceKey = "personal-care" | "live-in-care" | "companionship" | "supported-living";
+export type ServiceKey =
+  | "personal-care"
+  | "companionship"
+  | "supported-living"
+  | "person-centred-care";
 
 export interface ServiceContent {
   key: ServiceKey;
@@ -119,34 +123,6 @@ export const services: ServiceContent[] = [
     metaTitle: "Personal Care at Home in the UK | STAG Family Care",
     metaDescription:
       "Respectful personal care at home from STAG Family Care. Support with washing, dressing, medication prompts and moving safely, planned around each person.",
-  },
-  {
-    key: "live-in-care",
-    title: "Live in Care",
-    short: "A carer living in the home, offering reassurance day and night and a familiar routine.",
-    intro:
-      "Live in care means a carer stays in the home, so help is close at hand through the day and there is reassurance at night. For many families it is a considered alternative to moving into a care home, keeping familiar surroundings, pets and neighbours.",
-    suits: [
-      "People who would find a move away from home unsettling",
-      "Couples who would like to stay together in their own home",
-      "Someone living with a long term condition who may need frequent support",
-      "Families looking for continuity rather than many different visitors",
-    ],
-    includes: [
-      "Daily personal care and practical help around the house",
-      "Company, conversation and support with hobbies and routines",
-      "Meal planning, cooking and shopping",
-      "Support to attend appointments and social activities",
-      "Reassurance overnight, with arrangements agreed in the care plan",
-      "Regular reviews and planned cover so the arrangement stays sustainable",
-    ],
-    planning:
-      "Live in care needs careful planning. We talk through routines, the home itself, sleeping arrangements and the level of support needed, then agree everything in writing after an assessment. Cover for breaks and holidays is planned in from the start.",
-    dignity:
-      "A carer living in the home is a guest in someone else's space. We are clear about boundaries, respect house rules and make sure the person receiving care stays in charge of their own day.",
-    metaTitle: "Live in Care at Home | STAG Family Care",
-    metaDescription:
-      "Live in care from STAG Family Care. A carer in the home offering reassurance day and night, familiar routines and continuity, subject to assessment.",
   },
   {
     key: "companionship",
