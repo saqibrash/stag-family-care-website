@@ -180,6 +180,35 @@ export const services: ServiceContent[] = [
     metaDescription:
       "Supported living from STAG Family Care. Flexible support that helps adults live independently and build confidence in their own home.",
   },
+  {
+    key: "person-centred-care",
+    title: "Person Centred Care",
+    short:
+      "Support shaped around the person, their routines, their choices and the independence they want to keep.",
+    intro:
+      "Person centred care starts with the person rather than the task list. We ask how someone likes their day to run, what they still want to do for themselves and where a little help would make the difference, then build the support around that.",
+    suits: [
+      "Anyone who would like support planned around their own routine",
+      "People who want to keep doing as much for themselves as possible",
+      "Families who would like care reviewed as needs change",
+      "Someone who has found other support too rigid or task focused",
+    ],
+    includes: [
+      "A plan written with the person, in their own words",
+      "Support agreed around preferences, routines and interests",
+      "Encouragement to stay independent with everyday tasks",
+      "Regular reviews so support can flex up or step back",
+      "Clear communication with family, where the person agrees",
+      "A familiar team who understand what matters to the person",
+    ],
+    planning:
+      "We visit, listen and agree the plan together after an assessment. Nothing begins until the person receiving care is happy with it, and it is reviewed regularly.",
+    dignity:
+      "Person centred care means choice sits with the person throughout. We support decisions rather than make them, and we never take over a task someone would rather do themselves.",
+    metaTitle: "Person Centred Care at Home | STAG Family Care",
+    metaDescription:
+      "Person centred care from STAG Family Care. Support planned around each person, their routines and their independence, agreed after an assessment.",
+  },
 ];
 
 export const steps = [
