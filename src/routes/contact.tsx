@@ -27,7 +27,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contact STAG Family Care about personal care, live in care, companionship or supported living. Send an enquiry and we will talk it through with no obligation.",
+          "Contact STAG Family Care about personal care, companionship, supported living or person centred care. Send an enquiry and we will talk it through with no obligation.",
       },
       { property: "og:title", content: "Contact STAG Family Care" },
       {

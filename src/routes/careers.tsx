@@ -48,7 +48,6 @@ function Careers() {
             <h2 className="text-xl">Roles we expect to recruit</h2>
             <ul className="mt-4 space-y-2 text-muted-foreground">
               <li>[Care Assistant, visiting care]</li>
-              <li>[Live in Carer]</li>
               <li>[Support Worker, supported living]</li>
               <li>[Companionship Carer]</li>
             </ul>
