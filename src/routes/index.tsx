@@ -84,8 +84,8 @@ function Home() {
               Care at home that feels personal, because family comes first
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              STAG Family Care offers respectful, dependable support at home. Personal care, live in
-              care, companionship and supported living, planned around each person.
+              STAG Family Care offers respectful, dependable support at home. Personal care,
+              companionship, supported living and person centred care.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
@@ -135,7 +135,7 @@ function Home() {
                 <TiltCard>
                   <article className="depth-card flex h-full flex-col overflow-hidden">
                     <Photo
-                      photo={photos[s.key === "personal-care" ? "personalCare" : s.key === "live-in-care" ? "liveInCare" : s.key === "companionship" ? "companionship" : "supportedLiving"]}
+                      photo={servicePhotos[s.key]}
                       className="h-48"
                       sizes="(min-width: 768px) 520px, 100vw"
                     />
@@ -166,9 +166,14 @@ function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Why families choose STAG"
-              title="A small, family run service that answers the phone"
-              intro="Good care comes down to the same things every time: turning up, listening properly and treating people as people."
+              title="Reasons families take a closer look"
+              intro="We’re new, and we’re not going to pretend otherwise. What we can offer is years of experience, and individualised person centred care."
             />
+            <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+              Good care comes down to the same things every time: turning up, listening properly
+              and, most importantly, ensuring that all individuals are encouraged to remain
+              independent throughout as much as possible.
+            </p>
             <Button asChild variant="outline" className="mt-8 rounded-full">
               <Link to="/why-choose-us">Why choose us</Link>
             </Button>
