@@ -9,9 +9,9 @@ import { photos } from "@/lib/images";
 
 const servicePhotos = {
   "personal-care": photos.personalCare,
-  "live-in-care": photos.liveInCare,
   companionship: photos.companionship,
   "supported-living": photos.supportedLiving,
+  "person-centred-care": photos.personCentredCare,
 } as const;
 
 export const Route = createFileRoute("/services/$service")({

@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Family run care at home. Personal care, live in care, companionship and supported living, planned around each person and their independence. Enquire today.",
+          "Family run care at home. Personal care, companionship, supported living and person centred care, planned around each person and their independence. Enquire today.",
       },
       { property: "og:title", content: "STAG Family Care | Family Run Care at Home" },
       {
@@ -58,9 +58,16 @@ const values = [
 
 const serviceIcons = {
   "personal-care": HandHeart,
-  "live-in-care": HomeIcon,
   companionship: HeartHandshake,
   "supported-living": Users,
+  "person-centred-care": HomeIcon,
+} as const;
+
+const servicePhotos = {
+  "personal-care": photos.personalCare,
+  companionship: photos.companionship,
+  "supported-living": photos.supportedLiving,
+  "person-centred-care": photos.personCentredCare,
 } as const;
 
 function Home() {
