@@ -15,6 +15,7 @@ import { AnnouncementBar, Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { MobileContactButton } from "@/components/site/MobileContactButton";
 import { Toaster } from "@/components/ui/sonner";
+import { site } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -117,6 +118,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Family run care service offering personal care, companionship, supported living and person centred care at home.",
           url: "/",
           logo: "/brand/stag-family-care-logo.png",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: site.phone.replace(/\s/g, ""),
+            contactType: "enquiries",
+            availableLanguage: "English",
+          },
         }),
       },
     ],
