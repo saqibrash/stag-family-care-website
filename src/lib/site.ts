@@ -11,8 +11,8 @@ export const site = {
   name: "STAG Family Care",
   strapline: "From our family to yours",
 
-  /** Add the STAG Family Care phone number here once it is live. */
-  phone: "",
+  /** STAG Family Care phone number. */
+  phone: "01285 708798",
   phoneLabel: "STAG Family Care phone number to be added",
 
   /** Add the STAG Family Care email address here once it is live. */

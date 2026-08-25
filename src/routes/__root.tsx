@@ -15,6 +15,7 @@ import { AnnouncementBar, Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { MobileContactButton } from "@/components/site/MobileContactButton";
 import { Toaster } from "@/components/ui/sonner";
+import { site } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
