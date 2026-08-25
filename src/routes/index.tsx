@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import Family from "/family.jpg"
 import {
   Accessibility,
   ArrowRight,
@@ -233,11 +234,12 @@ function Home() {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
-            <Photo
+            <img src={Family} className="rounded-md" alt="" />
+            {/* <Photo
               photo={photos.family}
               className="aspect-[4/3] rounded-3xl shadow-deep"
               sizes="(min-width: 1024px) 480px, 100vw"
-            />
+            /> */}
           </div>
         </Reveal>
       </Section>
