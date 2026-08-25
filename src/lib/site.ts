@@ -16,15 +16,15 @@ export const site = {
   phoneLabel: "STAG Family Care phone number to be added",
 
   /** Add the STAG Family Care email address here once it is live. */
-  email: "",
+  email: "info@stagfamilycare.co.uk",
   emailLabel: "STAG Family Care email address to be added",
 
   /** Add the careers email here once it is live. */
-  careersEmail: "",
+  careersEmail: "info@stagfamilycare.co.uk",
   careersEmailLabel: "STAG Family Care careers email address to be added",
 
   /** Add the office address here once it is confirmed. */
-  address: "",
+  address: "Unit 156, West Wing, Trinity Road, Cirencester. GL7  1PX",
   addressLabel: "Office address to be confirmed",
 
   /** Add opening hours here once they are confirmed. */
@@ -44,9 +44,9 @@ export const site = {
 
   /** Replace with the confirmed towns and areas STAG Family Care will cover. */
   serviceAreas: [] as string[],
-  serviceAreasLabel: "Care service area to be confirmed",
+  serviceAreasLabel: "The Cotswolds, Cirencester, and surrounding areas",
   serviceAreaNote:
-    "STAG Cleaning Services, the family business already trading, covers the Cotswolds, Cirencester, Swindon and surrounding areas. The care service area will be confirmed separately before launch.",
+    "STAG Cleaning Services, the family business already trading, covers the Cotswolds, Cirencester, and surrounding areas. The care service area will be confirmed separately before launch.",
 
   founders: [
     {
@@ -67,7 +67,7 @@ export const site = {
     phone: "07745 967573",
     phoneHref: "tel:+447745967573",
     email: "info@stagcleaningservices.co.uk",
-    areas: "The Cotswolds, Cirencester, Swindon and surrounding areas",
+    areas: "The Cotswolds, Cirencester, and surrounding areas",
   },
 } as const;
 
@@ -99,7 +99,7 @@ export const services: ServiceContent[] = [
   {
     key: "personal-care",
     title: "Personal Care",
-    short: "Respectful help with washing, dressing, medication prompts and moving safely at home.",
+    short: "Respectful help with washing, dressing, administering creams, and oral.",
     intro:
       "Personal care is practical, dignified help with the everyday things that keep life comfortable at home. The aim is always to help someone do as much for themselves as they can, with a familiar carer alongside them.",
     suits: [
@@ -261,6 +261,6 @@ export const faqs = [
   },
   {
     q: "Which areas will you cover?",
-    a: "The care service area is being confirmed and will be published here before launch. If you are unsure whether we can reach you, please ask.",
+    a: "The Cotswolds, Cirencester, and surrounding areas",
   },
 ];

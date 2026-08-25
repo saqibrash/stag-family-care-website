@@ -57,7 +57,7 @@ function About() {
               </a>
               , a separate local business. Different service, different team, same family standards.
             </p>
-            <p>[Editable placeholder. Add the founding story, launch background and local roots.]</p>
+            
           </div>
 
           <dl className="grid gap-4 self-start rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
@@ -73,24 +73,20 @@ function About() {
               </dt>
               <dd className="mt-1 text-muted-foreground">{site.registrationNote}</dd>
             </div>
-            <div>
-              <dt className="text-sm font-bold uppercase tracking-[0.16em] text-primary">Launch</dt>
-              <dd className="mt-1 text-muted-foreground">{site.launchNote}</dd>
-            </div>
+            
             <div>
               <dt className="text-sm font-bold uppercase tracking-[0.16em] text-primary">
                 Care experience &amp; qualifications
               </dt>
               <dd className="mt-1 text-muted-foreground">
-                [Editable placeholder. List relevant care experience, training and qualifications
-                once confirmed.]
+                Over 10 years experience in the care sector. Holds level 5 in health and social care management.
               </dd>
             </div>
           </dl>
         </div>
       </Section>
 
-      <Section tone="cream">
+      {/* <Section tone="cream">
         <SectionHeading
           eyebrow="Our people"
           title="The family behind STAG"
@@ -106,7 +102,7 @@ function About() {
             </article>
           ))}
         </div>
-      </Section>
+      </Section> */}
 
       <Section>
         <SectionHeading eyebrow="Our values" title="What we hold ourselves to" />
