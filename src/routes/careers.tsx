@@ -37,42 +37,55 @@ function Careers() {
       <Section>
         <div className="rounded-3xl border border-dashed border-primary/40 bg-blush p-7">
           <h2 className="text-xl">Current vacancies</h2>
-          <p className="mt-3 text-muted-foreground">
-            [Editable placeholder, no vacancies are advertised at present. Add live roles here when
-            recruitment opens. Until then, expressions of interest are welcome.]
+          <p className="mt-3 text-muted-foreground font-bold">
+            Care Assistant
           </p>
+          <p>Join STAG Family Care and become part of a growing, family focused care team.
+
+We are looking for kind, reliable and compassionate people who genuinely care about making a difference in someone’s day.
+</p>
+
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           <article className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
             <h2 className="text-xl">Roles we expect to recruit</h2>
             <ul className="mt-4 space-y-2 text-muted-foreground">
-              <li>[Care Assistant, visiting care]</li>
-              <li>[Support Worker, supported living]</li>
-              <li>[Companionship Carer]</li>
+              <li>* Supporting clients with everyday tasks</li>
+              <li>* Providing companionship</li>
+              <li>* Helping people remain independent at home</li>
+              <li>* Supporting personal care where required</li>
+              <li>* Following individual care plans</li>
+              <li>* Communicating clearly with clients, families and the team</li>
             </ul>
           </article>
 
           <article className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
             <h2 className="text-xl">What we look for</h2>
             <ul className="mt-4 space-y-2 text-muted-foreground">
-              <li>Kindness, patience and reliability</li>
-              <li>[Right to work in the UK]</li>
-              <li>[Enhanced DBS check, details to confirm]</li>
-              <li>[Driving licence and access to a vehicle, where required]</li>
-              <li>[Experience or willingness to complete training]</li>
+              <li>* A caring and respectful attitude</li>
+              <li>* Good communication skills</li>
+              <li>* Reliable and professional</li>
+              <li>* Able to support people with dignity and independence</li>
+              <li>* Comfortable working in clients’ homes</li>
+              <li>* Able to work as part of a team</li>
+              {/* <li>Previous care experience is helpful, but the client has not confirmed whether it is essential</li> */}
             </ul>
           </article>
 
           <article className="rounded-3xl border border-border/70 bg-card p-7 shadow-soft">
             <h2 className="text-xl">What we offer</h2>
-            <ul className="mt-4 space-y-2 text-muted-foreground">
-              <li>[Pay rate placeholder]</li>
-              <li>[Paid training placeholder]</li>
-              <li>[Travel time / mileage policy placeholder]</li>
-              <li>[Flexible rota options placeholder]</li>
-              <li>Realistic visit times and a manager who picks up the phone</li>
-            </ul>
+            <p className="mt-2 text-muted-foreground font-black">Pay and benefits</p>
+<ul className="mt-2">
+
+ <li> * £13 per hour</li>
+<li>* 45p mileage between clients</li>
+<li>* Company pension</li>
+<li>* Employee Assistance Programme</li>
+<li>* Supportive working environment</li>
+<li>* Ongoing training and development</li>
+<li>* Opportunity to grow with a new care company</li>
+</ul>
           </article>
         </div>
       </Section>
