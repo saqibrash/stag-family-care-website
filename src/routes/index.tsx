@@ -63,6 +63,7 @@ const serviceIcons = {
   "person-centred-care": HomeIcon,
 } as const;
 
+// 
 const servicePhotos = {
   "personal-care": photos.personalCare,
   companionship: photos.companionship,
