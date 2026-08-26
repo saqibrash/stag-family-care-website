@@ -109,7 +109,7 @@ function About() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["Integrity", "We are honest, reliable, and respectful in everything we do."],
-            ["Independence", "We support people to remain as independent as possible"],
+            ["Independence", "We support people to remain as independent as possible."],
             ["Compassion", "We provide care with kindness, patience, and understanding."],
             ["Consistency", "We aim to provide dependable support and clear communication."],
             ["Person Centered Care", "Every person is different, so our support is shaped around individual needs and preferences."],

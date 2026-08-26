@@ -51,10 +51,10 @@ export const Route = createFileRoute("/")({
 });
 
 const values = [
-  { icon: ShieldCheck, title: "Dignity", body: "Support given quietly and respectfully, always led by the person receiving it." },
-  { icon: Accessibility, title: "Independence", body: "We help people do things for themselves wherever we can, not instead of them." },
-  { icon: Clock, title: "Consistency", body: "Familiar faces, planned visits and clear communication with families." },
-  { icon: Heart, title: "Family values", body: "The care we would want for our own is the standard we hold ourselves to." },
+  { icon: ShieldCheck, title: "Integrity", body: "We are honest, reliable, and respectful in everything we do." },
+  { icon: Accessibility, title: "Independence", body: "We support people to remain as independent as possible." },
+  { icon: Clock, title: "Person Centered Care", body: "Every person is different, so our support is shaped around individual needs and preferences." },
+  { icon: Heart, title: "Family values", body: "We care for people with the same thought, respect, and attention we would want for our own family." },
 ];
 
 const serviceIcons = {
