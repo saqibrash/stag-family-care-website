@@ -108,10 +108,14 @@ function About() {
         <SectionHeading eyebrow="Our values" title="What we hold ourselves to" />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["Dignity", "Care given quietly, respectfully and at the pace of the person receiving it."],
-            ["Independence", "Support that keeps people doing what they can for themselves."],
-            ["Consistency", "Familiar carers, planned visits and honest communication."],
-            ["Family values", "We only offer what we would be happy for our own family to receive."],
+            ["Integrity", "We are honest, reliable, and respectful in everything we do."],
+            ["Independence", "We support people to remain as independent as possible"],
+            ["Compassion", "We provide care with kindness, patience, and understanding."],
+            ["Consistency", "We aim to provide dependable support and clear communication."],
+            ["Person Centered Care", "Every person is different, so our support is shaped around individual needs and preferences."],
+            ["Respect", "We treat every person with dignity, privacy, and respect."],
+            ["Accountability", "We take responsibility for the quality of our care and the decisions we make."],
+            ["Family values", "We care for people with the same thought, respect, and attention we would want for our own family."],
           ].map(([t, b]) => (
             <div key={t} className="rounded-3xl bg-blush p-6">
               <h3 className="text-lg">{t}</h3>

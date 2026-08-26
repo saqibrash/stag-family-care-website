@@ -28,7 +28,7 @@ export const site = {
   addressLabel: "Office address to be confirmed",
 
   /** Add opening hours here once they are confirmed. */
-  openingHours: "",
+  openingHours: "Mon-Fri 9-5",
   openingHoursLabel: "Office opening hours to be confirmed",
 
   outOfHours:
@@ -40,7 +40,7 @@ export const site = {
   launchNote: "We are a new service and are happy to answer early enquiries.",
 
   announcement:
-    "STAG Family Care is a new family run care service. Contact details will be published very soon.",
+    "STAG Family Care is a new family run care service. Call Now: 01285 708798",
 
   /** Replace with the confirmed towns and areas STAG Family Care will cover. */
   serviceAreas: [] as string[],
@@ -99,7 +99,7 @@ export const services: ServiceContent[] = [
   {
     key: "personal-care",
     title: "Personal Care",
-    short: "Respectful help with washing, dressing, administering creams, and oral.",
+    short: "Respectful help with washing, dressing, and administering creams.",
     intro:
       "Personal care is practical, dignified help with the everyday things that keep life comfortable at home. The aim is always to help someone do as much for themselves as they can, with a familiar carer alongside them.",
     suits: [
