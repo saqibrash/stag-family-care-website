@@ -16,6 +16,7 @@ import { Footer } from "@/components/site/Footer";
 import { MobileContactButton } from "@/components/site/MobileContactButton";
 import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/lib/site";
+import { GOOGLE_SITE_VERIFICATION, SITE_URL } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -91,6 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "STAG Family Care" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#5B0601" },
+      ...(GOOGLE_SITE_VERIFICATION ? [{ name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION }] : []),
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -111,18 +114,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "STAG Family Care",
-          slogan: "From our family to yours",
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": `${SITE_URL}/#organisation`,
+          name: site.name,
+          slogan: site.strapline,
           description:
             "Family run care service offering personal care, companionship, supported living and person centred care at home.",
-          url: "/",
-          logo: "/brand/stag-family-care-logo.png",
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: site.phone.replace(/\s/g, ""),
-            contactType: "enquiries",
-            availableLanguage: "English",
+          url: `${SITE_URL}/`,
+          logo: `${SITE_URL}/brand/stag-family-care-logo.png`,
+          image: `${SITE_URL}/brand/stag-family-care-logo.png`,
+          telephone: "+441285708798",
+          email: site.email,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Unit 156, West Wing, Trinity Road",
+            addressLocality: site.primaryTown || "Cirencester",
+            ...(site.county ? { addressRegion: site.county } : {}),
+            postalCode: "GL7 1PX",
+            addressCountry: "GB",
+          },
+          ...(site.serviceAreas.length ? { areaServed: site.serviceAreas } : {}),
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "17:00",
           },
         }),
       },

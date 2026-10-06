@@ -41,6 +41,7 @@ export function Footer() {
             {[
               { to: "/about", label: "About us" },
               { to: "/why-choose-us", label: "Why choose us" },
+              { to: "/blog", label: "Care advice blog" },
               { to: "/careers", label: "Work with us" },
               { to: "/contact", label: "Contact" },
               { to: "/privacy-policy", label: "Privacy policy" },

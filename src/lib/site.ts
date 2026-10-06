@@ -42,6 +42,13 @@ export const site = {
   announcement:
     "STAG Family Care is a new family run care service. Call Now: 01285 708798",
 
+  /**
+   * LOCAL SEO SETTINGS. Leave empty until confirmed. Once filled in, these
+   * feed into the LocalBusiness structured data automatically.
+   */
+  primaryTown: "",
+  county: "",
+
   /** Replace with the confirmed towns and areas STAG Family Care will cover. */
   serviceAreas: [] as string[],
   serviceAreasLabel: "The Cotswolds, Cirencester, and surrounding areas",
