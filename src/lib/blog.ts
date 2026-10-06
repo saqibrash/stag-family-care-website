@@ -45,7 +45,7 @@ export const posts: Post[] = [
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
-    photo: photos.personCentredCare,
+    get photo() { return photos.personCentredCare; },
     body: [
       { p: "If you have started looking into care, you have probably seen the phrase person centred care on almost every provider's website. It can start to sound like a slogan. In fact it describes a very practical way of working, and it is worth understanding so you know what to expect and what to ask." },
       { h2: "Person centred care in simple terms" },
@@ -98,7 +98,7 @@ export const posts: Post[] = [
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
-    photo: photos.companionship,
+    get photo() { return photos.companionship; },
     body: [
       { p: "When people think about care at home, they often picture help with washing, dressing or medication. But many people who live alone do not need that kind of support yet. What they miss is company, conversation and a reason to get out of the house. That is where companionship care comes in." },
       { h2: "What is companionship care?" },
@@ -148,7 +148,7 @@ export const posts: Post[] = [
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
-    photo: photos.personalCare,
+    get photo() { return photos.personalCare; },
     body: [
       { p: "Deciding to accept help with personal tasks is a big step. Washing, dressing and using the bathroom are among the most private parts of life, and many people understandably want to manage on their own for as long as possible. Knowing the signs that support might help can make the decision feel less sudden." },
       { h2: "What is personal care?" },
@@ -198,7 +198,7 @@ export const posts: Post[] = [
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
-    photo: photos.supportedLiving,
+    get photo() { return photos.supportedLiving; },
     body: [
       { p: "Supported living is one of the most flexible ways to arrange care, but it is also one of the least understood. Families often hear the term from social workers or schools and are not sure how it differs from other options. This guide explains the basics in plain English." },
       { h2: "Supported living explained" },
@@ -260,7 +260,7 @@ export const posts: Post[] = [
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
-    photo: photos.conversation,
+    get photo() { return photos.conversation; },
     body: [
       { p: "Many families put off talking about care because they are worried about upsetting someone, or because they are not sure where to start. It is completely normal to feel uneasy. With a little preparation, though, the conversation can be calmer and more positive than you expect." },
       { h2: "Start early if you can" },
@@ -312,7 +312,7 @@ export const posts: Post[] = [
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
-    photo: photos.livingRoom,
+    get photo() { return photos.livingRoom; },
     body: [
       { p: "When you start looking for care at home, it can be hard to compare providers. Websites often sound similar and everyone promises good care. This guide sets out what to check, what to ask and what to look out for, so you can make a confident choice." },
       { h2: "Check registration and inspection reports" },
