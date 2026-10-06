@@ -1,5 +1,9 @@
-export function renderErrorPage(): string {
+export function renderErrorPage(detail?: string): string {
+  const note = detail
+    ? `<!-- diagnostic: ${detail.replace(/--/g, "- -").replace(/[<>]/g, "").slice(0, 600)} -->`
+    : "";
   return `<!doctype html>
+${note}
 <html lang="en">
   <head>
     <meta charset="utf-8" />
