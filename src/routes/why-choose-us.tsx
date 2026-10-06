@@ -1,3 +1,4 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { CtaSection, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { TiltCard } from "@/components/site/TiltCard";
@@ -5,21 +6,12 @@ import { site } from "@/lib/site";
 
 export const Route = createFileRoute("/why-choose-us")({
   head: () => ({
-    meta: [
-      { title: "Why Choose Us | STAG Family Care" },
-      {
-        name: "description",
-        content:
-          "Why families consider STAG Family Care, familiar carers, honest communication, careful matching and care plans agreed with you.",
-      },
-      { property: "og:title", content: "Why Choose STAG Family Care" },
-      {
-        property: "og:description",
-        content: "A small, family run care service built on consistency and honest communication.",
-      },
-      { property: "og:url", content: "/why-choose-us" },
-    ],
-    links: [{ rel: "canonical", href: "/why-choose-us" }],
+    ...pageHead({
+      title: "Why Choose STAG Family Care | Consistent, Honest Care",
+      description: "Why families consider STAG Family Care: familiar carers, clear care plans, honest communication and support that encourages independence.",
+      path: "/why-choose-us",
+    }),
+      scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}, {"name": "Why choose us", "path": "/why-choose-us"}])],
   }),
   component: WhyChooseUs,
 });

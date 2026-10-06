@@ -1,3 +1,4 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Family from "/family.jpg"
 import {
@@ -29,23 +30,12 @@ import { faqs, hasAreas, services, site } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "STAG Family Care | Family Run Care at Home in the UK" },
-      {
-        name: "description",
-        content:
-          "Family run care at home. Personal care, companionship, supported living and person centred care, planned around each person and their independence. Enquire today.",
-      },
-      { property: "og:title", content: "STAG Family Care | Family Run Care at Home" },
-      {
-        property: "og:description",
-        content:
-          "Respectful, dependable care and support at home. From our family to yours. Enquire about care today.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
+    ...pageHead({
+      title: "STAG Family Care | Personal Care and Home Support",
+      description: "Family run home care from STAG Family Care. Personal care, companionship, supported living and person centred care, planned around each person. Call 01285 708798.",
+      path: "/",
+    }),
+      scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}])],
   }),
   component: Home,
 });

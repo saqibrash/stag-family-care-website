@@ -1,3 +1,4 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CtaSection, PageHero, Section, SectionHeading } from "@/components/site/Section";
@@ -7,21 +8,12 @@ import { services } from "@/lib/site";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
-    meta: [
-      { title: "Our Services | STAG Family Care" },
-      {
-        name: "description",
-        content:
-          "Personal care, companionship, supported living and person centred care from STAG Family Care, support at home agreed after assessment.",
-      },
-      { property: "og:title", content: "Care Services | STAG Family Care" },
-      {
-        property: "og:description",
-        content: "Four core care services, planned around each person and reviewed as needs change.",
-      },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
+    ...pageHead({
+      title: "Home Care Services | STAG Family Care",
+      description: "Personal care, companionship, supported living and person centred care at home from STAG Family Care, agreed after an assessment.",
+      path: "/services",
+    }),
+      scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}, {"name": "Services", "path": "/services"}])],
   }),
   component: ServicesIndex,
 });
@@ -62,6 +54,17 @@ function ServicesIndex() {
           intro="The same four steps apply to every service we offer."
         />
         <ProcessPath />
+        <p className="mt-10 text-muted-foreground">
+          Not sure which service fits?{" "}
+          <Link to="/blog" className="font-semibold text-primary underline underline-offset-4">
+            Read our care advice and guidance
+          </Link>{" "}
+          or{" "}
+          <Link to="/contact" className="font-semibold text-primary underline underline-offset-4">
+            speak to our team
+          </Link>
+          .
+        </p>
       </Section>
 
       <CtaSection />

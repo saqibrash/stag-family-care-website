@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /privacy-policy
+
+Sitemap: https://www.stagfamilycare.co.uk/sitemap.xml

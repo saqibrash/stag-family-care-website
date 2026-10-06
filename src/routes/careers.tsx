@@ -1,3 +1,4 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,21 +7,12 @@ import { site } from "@/lib/site";
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
-    meta: [
-      { title: "Careers | Work With STAG Family Care" },
-      {
-        name: "description",
-        content:
-          "Join STAG Family Care as a carer or support worker. Read about the roles we expect to recruit for, what we look for and how to register your interest.",
-      },
-      { property: "og:title", content: "Careers at STAG Family Care" },
-      {
-        property: "og:description",
-        content: "Carer and support worker opportunities with a family run care service.",
-      },
-      { property: "og:url", content: "/careers" },
-    ],
-    links: [{ rel: "canonical", href: "/careers" }],
+    ...pageHead({
+      title: "Care Jobs and Careers | Work With STAG Family Care",
+      description: "Interested in carer or support worker roles? Register your interest with STAG Family Care, a family run care service that values its team.",
+      path: "/careers",
+    }),
+      scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}, {"name": "Careers", "path": "/careers"}])],
   }),
   component: Careers,
 });
