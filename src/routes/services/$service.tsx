@@ -11,10 +11,10 @@ import { photos, photoSrc } from "@/lib/images";
 import { abs, breadcrumbSchema, jsonLd, pageHead } from "@/lib/seo";
 
 const servicePhotos = {
-  "personal-care": photos.personalCare,
-  companionship: photos.companionship,
-  "supported-living": photos.supportedLiving,
-  "person-centred-care": photos.personCentredCare,
+  get "personal-care"() { return photos.personalCare; },
+  get companionship() { return photos.companionship; },
+  get "supported-living"() { return photos.supportedLiving; },
+  get "person-centred-care"() { return photos.personCentredCare; },
 } as const;
 
 export const Route = createFileRoute("/services/$service")({

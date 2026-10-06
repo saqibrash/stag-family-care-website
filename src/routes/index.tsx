@@ -56,10 +56,10 @@ const serviceIcons = {
 
 // 
 const servicePhotos = {
-  "personal-care": photos.personalCare,
-  companionship: photos.companionship,
-  "supported-living": photos.supportedLiving,
-  "person-centred-care": photos.personCentredCare,
+  get "personal-care"() { return photos.personalCare; },
+  get companionship() { return photos.companionship; },
+  get "supported-living"() { return photos.supportedLiving; },
+  get "person-centred-care"() { return photos.personCentredCare; },
 } as const;
 
 function Home() {
