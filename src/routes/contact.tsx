@@ -1,3 +1,4 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
@@ -22,23 +23,12 @@ import { hasAddress, hasEmail, hasPhone, services, site } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
-    meta: [
-      { title: "Contact STAG Family Care | Enquire About Care at Home" },
-      {
-        name: "description",
-        content:
-          "Contact STAG Family Care about personal care, companionship, supported living or person centred care. Send an enquiry and we will talk it through with no obligation.",
-      },
-      { property: "og:title", content: "Contact STAG Family Care" },
-      {
-        property: "og:description",
-        content:
-          "Send an enquiry about care at home and we will talk it through with you. No cost and no obligation.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    ...pageHead({
+      title: "Contact STAG Family Care | Discuss Your Care Needs",
+      description: "Speak to STAG Family Care about care at home. Call 01285 708798, email info@stagfamilycare.co.uk or send an enquiry with no obligation.",
+      path: "/contact",
+    }),
+      scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}, {"name": "Contact", "path": "/contact"}])],
   }),
   component: Contact,
 });

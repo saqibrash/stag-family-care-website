@@ -1,22 +1,15 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/Section";
 import { site } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
-    meta: [
-      { title: "Privacy Policy | STAG Family Care" },
-      {
-        name: "description",
-        content:
-          "How STAG Family Care handles enquiry information. This privacy policy is a placeholder to be reviewed and completed before launch.",
-      },
-      { property: "og:title", content: "Privacy Policy | STAG Family Care" },
-      { property: "og:description", content: "Placeholder privacy policy for STAG Family Care." },
-      { property: "og:url", content: "/privacy-policy" },
-      { name: "robots", content: "noindex" },
-    ],
-    links: [{ rel: "canonical", href: "/privacy-policy" }],
+    ...pageHead({
+      title: "Privacy Policy | STAG Family Care",
+      description: "How STAG Family Care collects, uses and protects personal information shared through this website.",
+      path: "/privacy-policy", noindex: true,
+    }),
   }),
   component: Privacy,
 });

@@ -1,3 +1,4 @@
+import { pageHead, breadcrumbSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { CtaSection, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { hasAreas, site } from "@/lib/site";
@@ -6,21 +7,12 @@ import { photos } from "@/lib/images";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About Us | STAG Family Care" },
-      {
-        name: "description",
-        content:
-          "STAG Family Care is a family run care service. Meet the people behind the name and read about our values, purpose and approach to care at home.",
-      },
-      { property: "og:title", content: "About STAG Family Care" },
-      {
-        property: "og:description",
-        content: "A family run care service built on dignity, independence and consistency.",
-      },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
+    ...pageHead({
+      title: "About STAG Family Care | A Family Run Care Service",
+      description: "Meet STAG Family Care, a new family run care service built on dignity, independence and consistent, person centred support at home.",
+      path: "/about",
+    }),
+      scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}, {"name": "About", "path": "/about"}])],
   }),
   component: About,
 });
