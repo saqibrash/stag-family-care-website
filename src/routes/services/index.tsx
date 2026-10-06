@@ -54,6 +54,17 @@ function ServicesIndex() {
           intro="The same four steps apply to every service we offer."
         />
         <ProcessPath />
+        <p className="mt-10 text-muted-foreground">
+          Not sure which service fits?{" "}
+          <Link to="/blog" className="font-semibold text-primary underline underline-offset-4">
+            Read our care advice and guidance
+          </Link>{" "}
+          or{" "}
+          <Link to="/contact" className="font-semibold text-primary underline underline-offset-4">
+            speak to our team
+          </Link>
+          .
+        </p>
       </Section>
 
       <CtaSection />
