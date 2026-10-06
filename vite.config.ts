@@ -12,4 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // When built on Vercel, target Vercel's runtime instead of the Cloudflare default.
+  // Lovable's own builds ignore this and always use their own target.
+  ...(process.env.VERCEL ? { nitro: { preset: "vercel" } } : {}),
 });
