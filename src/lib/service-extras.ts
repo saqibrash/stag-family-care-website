@@ -36,9 +36,9 @@ export const serviceExtras: Record<ServiceKey, ServiceExtras> = {
     faqs: [
       { q: "What is companionship care?", a: "Companionship care is non medical support focused on company, conversation, outings and help with light everyday tasks. It suits people who are mostly independent but would value regular contact." },
       { q: "How often can companionship visits happen?", a: "Visits can be weekly, several times a week or arranged around particular days. Frequency is agreed after an initial conversation and assessment." },
-      { q: "Can companionship be combined with personal care?", a: "Yes. Many people start with companionship and add personal care later if their needs change. The plan is reviewed so support can adapt." },
+      { q: "Can companionship be combined with other support?", a: "Yes. Companionship can sit alongside supported living or person centred care, and the plan is reviewed so support can adapt as needs change." },
     ],
-    related: ["personal-care", "person-centred-care"],
+    related: ["supported-living", "person-centred-care"],
     posts: ["how-companionship-care-can-support-independence", "how-to-start-a-conversation-about-care"],
   },
   "supported-living": {
@@ -70,7 +70,7 @@ export const serviceExtras: Record<ServiceKey, ServiceExtras> = {
       { q: "How is a person centred care plan written?", a: "We visit, listen and agree the plan together after an assessment. The person receiving care, and family if they wish, are involved throughout." },
       { q: "Can I change my plan later?", a: "Yes. Plans are reviewed regularly and you can ask for a review at any time if something is not working." },
     ],
-    related: ["personal-care", "supported-living"],
+    related: ["companionship", "supported-living"],
     posts: ["what-is-person-centred-care", "what-to-look-for-when-choosing-a-care-provider"],
   },
 };

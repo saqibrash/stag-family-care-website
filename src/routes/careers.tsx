@@ -46,7 +46,6 @@ We are looking for kind, reliable and compassionate people who genuinely care ab
               <li>* Supporting clients with everyday tasks</li>
               <li>* Providing companionship</li>
               <li>* Helping people remain independent at home</li>
-              <li>* Supporting personal care where required</li>
               <li>* Following individual care plans</li>
               <li>* Communicating clearly with clients, families and the team</li>
             </ul>

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/services/")({
   head: () => ({
     ...pageHead({
       title: "Home Care Services | STAG Family Care",
-      description: "Personal care, companionship, supported living and person centred care at home from STAG Family Care, agreed after an assessment.",
+      description: "Companionship, supported living and person centred care at home from STAG Family Care, agreed after an assessment.",
       path: "/services",
     }),
       scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}, {"name": "Services", "path": "/services"}])],
@@ -28,7 +28,7 @@ function ServicesIndex() {
       />
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <TiltCard key={s.key}>
               <article className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-7 shadow-soft">

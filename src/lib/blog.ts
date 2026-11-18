@@ -18,6 +18,8 @@ export interface Post {
   author: string;
   photo: Photo;
   body: Block[];
+  /** Hidden from the site and sitemap while true. Content kept for later. */
+  paused?: boolean;
 }
 
 const author = "The STAG Family Care team";
@@ -27,12 +29,11 @@ export const categories = [
   "Independent Living",
   "Family Support",
   "Companionship",
-  "Personal Care",
   "Supported Living",
   "Care Planning",
 ] as const;
 
-export const posts: Post[] = [
+export const allPosts: Post[] = [
   {
     slug: "what-is-person-centred-care",
     title: "What Is Person Centred Care and Why Does It Matter?",
@@ -80,7 +81,7 @@ export const posts: Post[] = [
       ] },
       { p: "Good answers will be specific. Be cautious of replies that only talk about tasks, timings and rotas without mentioning the person at all. Our guide on [what to look for when choosing a care provider](/blog/what-to-look-for-when-choosing-a-care-provider) covers more questions worth asking." },
       { h2: "Person centred care across different services" },
-      { p: "Person centred care is not a separate service so much as a way of delivering every service. It applies just as much to [personal care](/services/personal-care) as it does to [companionship](/services/companionship) or [supported living](/services/supported-living). Whatever the level of support, the starting point is the same: what matters to this person?" },
+      { p: "Person centred care is not a separate service so much as a way of delivering every service. It applies just as much to [companionship](/services/companionship) as it does to [supported living](/services/supported-living). Whatever the level of support, the starting point is the same: what matters to this person?" },
       { h2: "How we approach it at STAG Family Care" },
       { p: "Every arrangement with us starts with a conversation and an assessment at home. We write the plan together, agree visit times and preferences before anything begins, and review it as things change. You can read more about our [person centred care service](/services/person-centred-care)." },
       { p: "If you would like to talk through what person centred support could look like for you or a relative, [get in touch with our team](/contact). There is no cost and no obligation." },
@@ -130,7 +131,7 @@ export const posts: Post[] = [
         "Family carers who would like someone to spend time with their relative while they take a break",
       ] },
       { h2: "Combining companionship with other support" },
-      { p: "Companionship can stand on its own or sit alongside other services. Many people start with companionship and add [personal care at home](/services/personal-care) later if their needs change. Because the plan is [person centred](/blog/what-is-person-centred-care), it can grow with the person." },
+      { p: "Companionship can stand on its own or sit alongside other services. Many people start with companionship and add more support later if their needs change. Because the plan is [person centred](/blog/what-is-person-centred-care), it can grow with the person." },
       { h2: "Starting companionship care" },
       { p: "If you are thinking about companionship for yourself or a relative, a good first step is to talk about what a good week looks like. Which days feel long? What would they like to do more of? Our article on [starting a conversation about care](/blog/how-to-start-a-conversation-about-care) has practical tips if a relative is unsure." },
       { p: "You can read more about our [companionship care service](/services/companionship), or [speak to our team](/contact) to talk it through with no obligation." },
@@ -145,6 +146,7 @@ export const posts: Post[] = [
     summary:
       "It is not always obvious when extra help would make life easier. These gentle signs may suggest that personal care at home is worth considering.",
     category: "Personal Care",
+    paused: true, // Paused until CQC registration for Personal Care is confirmed
     published: "2026-10-06",
     updated: "2026-10-06",
     author,
@@ -225,7 +227,6 @@ export const posts: Post[] = [
         "Attending appointments and managing health",
         "Using public transport and building travel confidence",
         "College, volunteering, work or social activities",
-        "Personal care, where needed",
       ] },
       { p: "Good support workers encourage people to learn and practise skills rather than doing things for them. Over time, many people need less help with tasks they once found difficult." },
       { h2: "Choice and control" },
@@ -266,7 +267,7 @@ export const posts: Post[] = [
       { h2: "Start early if you can" },
       { p: "The best time to talk about care is before it is urgently needed. A relaxed conversation about what someone would want in the future is much easier than a rushed decision after a fall or a hospital stay. If a crisis has already happened, it is still worth taking time to involve the person as fully as possible." },
       { h2: "Prepare before you talk" },
-      { p: "Think about what you have noticed and why you are concerned. Be specific: perhaps the fridge is often empty, or they have mentioned struggling with the stairs. It can also help to read a little about the options, such as [companionship care](/services/companionship) or [personal care at home](/services/personal-care), so you can answer questions." },
+      { p: "Think about what you have noticed and why you are concerned. Be specific: perhaps the fridge is often empty, or they have mentioned struggling with the stairs. It can also help to read a little about the options, such as [companionship care](/services/companionship) or [supported living](/services/supported-living), so you can answer questions." },
       { p: "If other relatives are involved, try to agree a shared approach beforehand. Several people raising concerns at once can feel overwhelming." },
       { h2: "Choose the right moment" },
       { p: "Pick a quiet, comfortable time when nobody is rushed or tired. Avoid busy family occasions or moments of stress. A cup of tea at the kitchen table often works better than a formal meeting." },
@@ -316,7 +317,7 @@ export const posts: Post[] = [
     body: [
       { p: "When you start looking for care at home, it can be hard to compare providers. Websites often sound similar and everyone promises good care. This guide sets out what to check, what to ask and what to look out for, so you can make a confident choice." },
       { h2: "Check registration and inspection reports" },
-      { p: "In England, organisations that provide regulated activities such as personal care must be registered with the Care Quality Commission (CQC). You can search for a provider on the CQC website to see whether they are registered and read any inspection reports and ratings." },
+      { p: "In England, organisations that provide regulated care activities must be registered with the Care Quality Commission (CQC). You can search for a provider on the CQC website to see whether they are registered and read any inspection reports and ratings." },
       { p: "Newer services may not have been inspected yet, so they will not have a rating. That is not necessarily a concern, but it is reasonable to ask a provider directly about their registration status and what stage they are at. A trustworthy provider will be open about this." },
       { p: "If you live in Scotland, Wales or Northern Ireland, care is regulated by different bodies, so check the relevant regulator." },
       { h2: "Ask how care plans are created" },
@@ -329,7 +330,7 @@ export const posts: Post[] = [
       ] },
       { p: "Look for an approach that is genuinely [person centred](/blog/what-is-person-centred-care), focused on the individual rather than a standard set of tasks." },
       { h2: "Consistency of carers" },
-      { p: "Seeing a familiar face makes a big difference, especially for personal care. Ask how many different carers are likely to visit, how new carers are introduced and what happens during holidays or sickness. A provider that aims for a small, consistent team is often a good sign." },
+      { p: "Seeing a familiar face makes a big difference, especially for regular visits. Ask how many different carers are likely to visit, how new carers are introduced and what happens during holidays or sickness. A provider that aims for a small, consistent team is often a good sign." },
       { h2: "Communication" },
       { p: "Clear, honest communication is one of the most important things to look for. Ask:" },
       { ul: [
@@ -340,7 +341,7 @@ export const posts: Post[] = [
       ] },
       { p: "Pay attention to how the provider communicates during your first contact. Are they responsive, clear and patient with your questions?" },
       { h2: "Dignity and respect" },
-      { p: "Ask how carers protect privacy and dignity, particularly during personal care. Do they explain what they are doing and offer choices? Can you request a carer of a particular gender? Do they encourage people to do as much as they can for themselves?" },
+      { p: "Ask how carers protect privacy and dignity, particularly during close, practical support. Do they explain what they are doing and offer choices? Can you request a carer of a particular gender? Do they encourage people to do as much as they can for themselves?" },
       { h2: "Training and recruitment" },
       { p: "It is reasonable to ask how carers are recruited and trained. Care workers in England are expected to complete induction training, and many providers use the Care Certificate, developed with Skills for Care. Ask whether staff have Disclosure and Barring Service (DBS) checks and how they are supervised." },
       { h2: "Visit times and flexibility" },
@@ -380,3 +381,6 @@ export function formatDate(iso: string) {
     timeZone: "UTC",
   });
 }
+
+/** Posts visible on the site. Paused posts are excluded. */
+export const posts: Post[] = allPosts.filter((p) => !p.paused);

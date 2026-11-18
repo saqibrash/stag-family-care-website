@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "STAG Family Care provides respectful personal care, companionship, supported living and person centred care at home, planned around each person.",
+          "STAG Family Care provides respectful companionship, supported living and person centred care at home, planned around each person.",
       },
       { property: "og:site_name", content: "STAG Family Care" },
       { property: "og:type", content: "website" },
@@ -120,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: site.name,
           slogan: site.strapline,
           description:
-            "Family run care service offering personal care, companionship, supported living and person centred care at home.",
+            "Family run care service offering companionship, supported living and person centred care at home.",
           url: `${SITE_URL}/`,
           logo: `${SITE_URL}/brand/stag-family-care-logo.png`,
           image: `${SITE_URL}/brand/stag-family-care-logo.png`,

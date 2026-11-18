@@ -102,7 +102,14 @@ export interface ServiceContent {
   metaDescription: string;
 }
 
-export const services: ServiceContent[] = [
+/**
+ * All service content, including services that are temporarily paused.
+ * Personal Care is paused until CQC registration is confirmed. To restore it,
+ * remove "personal-care" from PAUSED_SERVICES below.
+ */
+export const PAUSED_SERVICES: ServiceKey[] = ["personal-care"];
+
+export const allServices: ServiceContent[] = [
   {
     key: "personal-care",
     title: "Personal Care",
@@ -218,6 +225,10 @@ export const services: ServiceContent[] = [
   },
 ];
 
+export const services: ServiceContent[] = allServices.filter(
+  (s) => !PAUSED_SERVICES.includes(s.key),
+);
+
 export const steps = [
   {
     title: "Tell us what you need",
@@ -228,7 +239,7 @@ export const steps = [
     body: "We talk things through properly: routines, preferences, health needs and what would help most.",
   },
   {
-    title: "Personal care plan",
+    title: "Your care plan",
     body: "After an assessment we write a clear plan together and agree who visits, when and what support may include.",
   },
   {

@@ -31,8 +31,8 @@ import { faqs, hasAreas, services, site } from "@/lib/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     ...pageHead({
-      title: "STAG Family Care | Personal Care and Home Support",
-      description: "Family run home care from STAG Family Care. Personal care, companionship, supported living and person centred care, planned around each person. Call 01285 708798.",
+      title: "STAG Family Care | Companionship and Home Support",
+      description: "Family run home care from STAG Family Care. Companionship, supported living and person centred care, planned around each person. Call 01285 708798.",
       path: "/",
     }),
       scripts: [breadcrumbSchema([{"name": "Home", "path": "/"}])],
@@ -76,8 +76,8 @@ function Home() {
               Care at home that feels personal, because family comes first
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              STAG Family Care offers respectful, dependable support at home. Personal care,
-              companionship, supported living and person centred care.
+              STAG Family Care offers respectful, dependable support at home. Companionship,
+              supported living and person centred care.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
@@ -116,10 +116,10 @@ function Home() {
           <SectionHeading
             eyebrow="Our services"
             title="Support shaped around everyday life"
-            intro="Four core services, each agreed after an assessment and reviewed as things change."
+            intro="Three core services, each agreed after an assessment and reviewed as things change."
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => {
             const Icon = serviceIcons[s.key];
             return (

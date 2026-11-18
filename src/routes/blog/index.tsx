@@ -10,7 +10,7 @@ export const Route = createFileRoute("/blog/")({
     ...pageHead({
       title: "Care Advice and Guidance | STAG Family Care Blog",
       description:
-        "Practical advice for families on person centred care, companionship, personal care, supported living and choosing a care provider.",
+        "Practical advice for families on person centred care, companionship, supported living and choosing a care provider.",
       path: "/blog",
     }),
     scripts: [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }])],
